@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header';
-import LoginBody from '../../components/Login/LoginBody/LoginBody';
+import SignBody from '../../components/Sign/SignBody/SignBody';
 
-import LoginTitle from '../../components/Login/LoginTitle/LoginTitle';
+import SignTitle from '../../components/Sign/SignTitle/SignTitle';
 
-const LoginPage = ({}) => {
+const SignPage = ({}) => {
   return (
     <>
       <Header />
       <Layout>
-        <LoginTitle />
-        <LoginBody />
+        <SignTitle />
+        <SignBody />
       </Layout>
     </>
   );
 };
-export default LoginPage;
+export default SignPage;
 
 const Layout = styled.div`
   width: 100%;

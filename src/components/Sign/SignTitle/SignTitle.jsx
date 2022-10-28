@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as T from './LoginTitle.style';
+import * as T from './SignTitle.style';
 
 const LoginTitle = ({}) => {
   return (

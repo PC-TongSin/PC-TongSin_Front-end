@@ -1,7 +1,7 @@
 import React from 'react';
-import * as I from './LoginInput.style';
+import * as I from './SignInput.style';
 
-const LoginInput = ({ id = '아이디', repeteCheck = false }) => {
+const SignInput = ({ id = '아이디', repeteCheck = false }) => {
   return (
     <>
       <I.BigDiv>
@@ -23,4 +23,4 @@ const LoginInput = ({ id = '아이디', repeteCheck = false }) => {
     </>
   );
 };
-export default LoginInput;
+export default SignInput;
