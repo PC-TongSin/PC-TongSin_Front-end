@@ -8,13 +8,7 @@ export const Detail = () => {
         항상 커밋을 잘 하십시오.
       </DetailNotice>
       <DetailTitle>제목입니다.</DetailTitle>
-      <DetailInfo>
-        <tr>
-          <th>날짜</th>
-        </tr>
-        <th>닉네임</th>
-        <th>추천수</th>
-      </DetailInfo>
+      여기, 글쓴이, 날짜, 이런거 들어갈거임
       <DetailBody>
         내용입니다.        내용입니다.
         내용입니다.        내용입니다.

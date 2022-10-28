@@ -11,7 +11,6 @@ export const Board = () => {
 
   return (
     <BoardContainer>
-      <div>
         <thead>
           <tr>
             <th>번호</th>
@@ -80,7 +79,6 @@ export const Board = () => {
             </BoardItemLarge>
           </tr>
         </tbody>
-      </div>
     </BoardContainer>
   );
 };

@@ -9,7 +9,13 @@ const SignBody = ({}) => {
 
   const dispatch = useDispatch();
 
-  // const [input, setInput] = useState();
+  const [input, setInput] = useState();
+  const onChangeHandlers = (e) => {
+    const { name, value } = e.target;
+    setInput({ ...input, [name]: value });
+  }
+
+  
 
   return (
     <>
