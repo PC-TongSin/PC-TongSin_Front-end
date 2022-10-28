@@ -19,4 +19,4 @@ export const LoginTitleH1 = styled.h1`
   color: ${(props) => {
     console.log(props.theme);
   }};
-`;
+`
