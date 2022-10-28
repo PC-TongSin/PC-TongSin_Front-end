@@ -21,9 +21,13 @@ export const DetailTitle = styled.h1`
   text-align: center;
   padding-top: 5rem;
   border-bottom: 1px solid white;
+  padding-bottom: 3rem;
 `
 
 export const DetailInfo = styled.thead`
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-evenly;
   width: 90%;
   border-bottom: 2px solid white;
   padding-top: 1rem;
