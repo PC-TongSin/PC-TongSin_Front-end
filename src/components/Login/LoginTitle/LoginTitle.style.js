@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 
 export const LoginTitleSection = styled.section`
-  height: 330px;
+  height: 16rem;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.GREY};
+
+  margin-bottom: 1rem;
 `;
 
-export const LoginHeaderButton = styled.button`
-  width: 100px;
-  height: 40px;
-  font-size: 18px;
-  background-color: #d9d9d9;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+export const LoginTitleH1 = styled.h1`
+  margin: auto;
+  font-size: 4rem;
+
+  color: ${(props) => {
+    console.log(props.theme);
+  }};
 `;

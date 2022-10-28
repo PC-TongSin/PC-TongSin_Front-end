@@ -1,8 +1,12 @@
-import { BoardContainer, BoardItemSmall,BoardItemMedium, BoardItemLarge } from "./Board.styled"
-import { useNavigate } from "react-router-dom";
+import {
+  BoardContainer,
+  BoardItemSmall,
+  BoardItemMedium,
+  BoardItemLarge,
+} from './Board.styled';
+import { useNavigate } from 'react-router-dom';
 
 export const Board = () => {
-
   const navigate = useNavigate();
 
   return (
@@ -20,7 +24,6 @@ export const Board = () => {
           </tr>
         </thead>
         <tbody>
-
           <tr>
             <BoardItemSmall>1</BoardItemSmall>
             <BoardItemSmall>김성호</BoardItemSmall>
@@ -28,9 +31,13 @@ export const Board = () => {
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>0</BoardItemSmall>
-            <BoardItemLarge onClick={() => {
-              navigate("/detail")
-            }}>하이텔은 살아있다</BoardItemLarge>
+            <BoardItemLarge
+              onClick={() => {
+                navigate('/detail');
+              }}
+            >
+              하이텔은 살아있다
+            </BoardItemLarge>
           </tr>
           <tr>
             <BoardItemSmall>2</BoardItemSmall>
@@ -66,11 +73,14 @@ export const Board = () => {
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>3</BoardItemSmall>
-            <BoardItemLarge>엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!</BoardItemLarge>
+            <BoardItemLarge>
+              엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴
+              타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴
+              타이틀!!!!엄청 긴 타이틀!!!!
+            </BoardItemLarge>
           </tr>
-
         </tbody>
       </div>
     </BoardContainer>
-  )
+  );
 };

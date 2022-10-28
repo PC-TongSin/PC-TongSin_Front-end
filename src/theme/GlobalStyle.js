@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
-    font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code";
+    font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code" !important; 
     margin: 0;
   }
 `;
