@@ -1,9 +1,18 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   };
+
+
+
+button {
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+}
+
 
   body {
     background: ${({ theme }) => theme.bgColor};
@@ -11,4 +20,4 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code";
     margin: 0;
   }
-`
+`;
