@@ -1,16 +1,16 @@
 import React from 'react';
 import * as T from './UploadTextareaBox.style';
 
-const UploadTextareaBox = ({}) => {
+const UploadTextareaBox = ({ content, handleChange }) => {
   return (
     <>
       <T.BigDiv>
         <T.Div>
           <T.SmallDiv>
-            <T.Span>제목 {`>`}</T.Span>
+            <T.Span>내용 {`>`}</T.Span>
           </T.SmallDiv>
 
-          <T.Textarea />
+          <T.Textarea name='content' value={content} onChange={handleChange} />
         </T.Div>
       </T.BigDiv>
     </>

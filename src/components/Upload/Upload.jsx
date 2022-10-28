@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as U from './Upload.style';
 import UploadBox from './UploadBox/UploadBox';
@@ -7,34 +7,67 @@ import UploadTextareaBox from './UploadTextareaBox/UploadTextareaBox';
 import UploadTextBox from './UploadTextBox/UploadTextBox';
 
 const Upload = ({}) => {
+  const [input, setInput] = useState({
+    title: '',
+    content: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInput({ ...input, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(input);
+  };
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setInput({
+      title: '',
+      content: '',
+    });
+  };
+
   return (
     <>
       <U.Section>
-        <U.TitleDiv>
-          <U.TitleSpan>글 작성</U.TitleSpan>
-        </U.TitleDiv>
+        <form onSubmit={handleSubmit}>
+          <U.TitleDiv>
+            <U.TitleSpan>글 작성</U.TitleSpan>
+          </U.TitleDiv>
 
-        <U.ThinDiv>
-          <U.ThinDiv2>
-            <UploadBox>
-              <Span2>조재신</Span2>
-            </UploadBox>
-            <UploadBox>
-              <Span2>털보코딩</Span2>
-            </UploadBox>
-            <UploadBox>
-              <BoxInput />
-            </UploadBox>
-            {/* <UploadBox>
+          <U.ThinDiv>
+            <U.ThinDiv2>
+              <UploadBox title='작성자'>
+                <Span2>조재신</Span2>
+              </UploadBox>
+              <UploadBox title='닉네임'>
+                <Span2>털보코딩</Span2>
+              </UploadBox>
+              <UploadBox>
+                <BoxInput
+                  value={input.title}
+                  name='title'
+                  onChange={handleChange}
+                />
+              </UploadBox>
+              {/* <UploadBox>
             <BoxTextArea />
           </UploadBox> */}
-            <UploadTextareaBox />
-          </U.ThinDiv2>
-          <ButtonDiv>
-            <ButtonCancel>취소</ButtonCancel>
-            <ButtonSubmit>게시물 등록</ButtonSubmit>
-          </ButtonDiv>
-        </U.ThinDiv>
+              <UploadTextareaBox
+                content={input.content}
+                handleChange={handleChange}
+              />
+            </U.ThinDiv2>
+            <ButtonDiv>
+              <ButtonCancel onClick={handleCancel}>취소</ButtonCancel>
+              <ButtonSubmit>게시물 등록</ButtonSubmit>
+            </ButtonDiv>
+          </U.ThinDiv>
+        </form>
       </U.Section>
     </>
   );
