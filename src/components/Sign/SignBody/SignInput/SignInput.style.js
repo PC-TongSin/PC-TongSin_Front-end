@@ -9,14 +9,16 @@ export const Div = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  min-width: 15rem;
 `;
 
 export const Span = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 
 export const SmallDiv = styled.div`
   flex: 1;
+  min-width: 15rem;
 `;
 
 export const Input = styled.input`
@@ -37,6 +39,7 @@ export const CheckButton = styled.button`
   font-family: 'Neo둥근모 Code';
   background-color: ${(props) => props.theme.GREY};
   padding: 0;
+  min-width: 4rem;
 `;
 export const FakeCheckButton = styled.div`
   flex: 1;

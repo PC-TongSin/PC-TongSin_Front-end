@@ -1,7 +1,13 @@
 import React from 'react';
 import * as I from './SignInput.style';
 
-const SignInput = ({ id = '아이디', repeteCheck = false }) => {
+const SignInput = ({ 
+    id = '아이디', 
+    repeteCheck = false,
+    onChangeHandler,
+    value,
+    name
+  }) => {
   return (
     <>
       <I.BigDiv>
@@ -10,7 +16,7 @@ const SignInput = ({ id = '아이디', repeteCheck = false }) => {
             <I.Span>{id} {`>`}</I.Span>
           </I.SmallDiv>
 
-          <I.Input />
+          <I.Input name={name} value={value} onChange={onChangeHandler}/>
 
           {repeteCheck ? (
             <I.CheckButton>중복체크</I.CheckButton>

@@ -13,11 +13,12 @@ export const Section = styled.section`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
   width: 7rem;
   height: 3rem;
-
   font-size: 1.4rem;
   font-family: 'Neo둥근모 Code';
-  margin: auto;
+  margin: 0 auto;
   background-color: ${(props) => props.theme.GREY};
 `;
