@@ -1,32 +1,32 @@
-import './App.css';
 import "@kfonts/neodgm-code";
+import { ThemeProvider } from "styled-components";
+import { LightTheme, DarkTheme } from "./theme/Theme"
+import { GlobalStyle } from "./theme/GlobalStyle";
+import { useState } from 'react';
 
 function App() {
+
+  const [theme, setTheme] = useState("dark");
+
+  const isLight = theme === "light";
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
   return (
-    <div className="App">
-      <p>피씨통신입니다.</p>
-      <textarea className="bluescreen">
-                ┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑
-        │☞ 불건전 정보 유통 방지를 위한 모니터링 및 제재 강화 - 정보통신윤리위원회│
-        │  - 매춘(원조교제) 알바모집방 개설 : 무기한 사용중지 및 관련 수사기관통보 │
-        │  - 불건전 만남 유도 대화방제 사용 : 발견 즉시 사용중지 3개월             │
-        │  - 기타 불건전한 성격의 방제 사용 : 경고 후 재적발시 사용중지 3개월      │
-        │☞ 불건전대화 및 언어폭력을 하는 회원은 "/SAVE" 명령어로 신고합시다.      │
-        │☞ 대화수신 거부 명령어는 "/EX" 이며, 초대 및 메모 거부는 "ME N" 입니다.  │
-        │☞ 성적언어폭력을 행사하는 경우, 피해자가 신고시 가해자는 법적 처벌을 받을│
-        │   수 있습니다. 우리 모두 건전한 언어를 사용합시다.                       │
-        │☞ 신고방법은 go SINGO메뉴를 참고해 주시기 바랍니다.                      │
-        │☞ 신고센터(ZSOS5~10), 모니터링 (ZMOP1~7), ZCENTER 외에는 대화방 운영자 ID│
-        │   가 아닙니다. 비밀번호 입력을 요청당하면 신고센터에 즉시 신고합시다     │
-        ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙
-        초대형대화나라(CHAT)
-          ┌────────────────────────────────────┐
-          │ [주의] 천리안 운영자는 어떤 경우에도 사용자의 비밀번호를 묻지않습니다. │
-          │        운영자를 사칭하거나, 특히 음성 채팅을 운운하며 비밀번호와 주민  │
-          │        등록번호를 입력하라는 회원은 발견 즉시 신고합시다. (go SINGO)   │
-          └────────────────────────────────────┘
-      </textarea>
-    </div>
+    <ThemeProvider theme={ theme === "light" ? LightTheme : DarkTheme }>
+      <div className="App">
+        <GlobalStyle/>
+        <p>피씨통신입니다. This is 3조  ㈜㉠r끔『핑그겅듀』™</p>
+        <p>여러분 ㉠ㅣ억 ㄴr ㅅI ㄴr 요...?</p>
+        <button onClick={toggleTheme}>눌러봐</button>
+      </div>
+    </ThemeProvider>
   );
 }
 
