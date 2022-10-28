@@ -1,4 +1,4 @@
-import { Main } from '../components/main/Main';
+import { Main } from '../components/Main/Main';
 import Header from '../components/Header/Header';
 
 export const MainPage = () => {
