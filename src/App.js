@@ -19,10 +19,10 @@ function App() {
 
   return (
     <ThemeProvider theme={ theme === "light" ? LightTheme : DarkTheme }>
+      <GlobalStyle/>
       <div className="App">
-        <GlobalStyle/>
-        <Router />
         <button onClick={toggleTheme}>눌러봐</button>
+        <Router />
       </div>
     </ThemeProvider>
   );
