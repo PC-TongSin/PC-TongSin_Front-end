@@ -7,6 +7,5 @@ export const MainPage = () => {
       {/* <Header /> */}
       <Main />
     </>
-
   );
 };
