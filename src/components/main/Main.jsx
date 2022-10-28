@@ -8,7 +8,7 @@ export const Main = () => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate("/login")
+    navigate("/sign")
   }
 
   const onKeyPress = (e) => {
