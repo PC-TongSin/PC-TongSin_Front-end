@@ -1,11 +1,14 @@
 import { MainContainer, MainBanner, MainInfo, MainAccessMsg } from "./Main.styled";
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
 
+  const navigate = useNavigate();
+
   const onClick = () => {
-    alert("로그인 페이지로 이동")
+    navigate("/login")
   }
 
   const onKeyPress = (e) => {

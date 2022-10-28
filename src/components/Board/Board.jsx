@@ -1,6 +1,10 @@
 import { BoardContainer, BoardItemSmall,BoardItemMedium, BoardItemLarge } from "./Board.styled"
+import { useNavigate } from "react-router-dom";
 
 export const Board = () => {
+
+  const navigate = useNavigate();
+
   return (
     <BoardContainer>
       <div>
@@ -24,7 +28,9 @@ export const Board = () => {
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>0</BoardItemSmall>
-            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
+            <BoardItemLarge onClick={() => {
+              navigate("/detail")
+            }}>하이텔은 살아있다</BoardItemLarge>
           </tr>
           <tr>
             <BoardItemSmall>2</BoardItemSmall>
