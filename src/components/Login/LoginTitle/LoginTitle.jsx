@@ -1,9 +1,13 @@
 import React from 'react';
 
+import * as T from './LoginTitle.style';
+
 const LoginTitle = ({}) => {
   return (
     <>
-      <h1>Login Title</h1>
+      <T.LoginTitleSection>
+        <T.LoginTitleH1>피씨 - 통신</T.LoginTitleH1>
+      </T.LoginTitleSection>
     </>
   );
 };

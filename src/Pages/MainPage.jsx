@@ -1,7 +1,5 @@
-import { Main } from "../components/Main/Main";
+import { Main } from '../components/main/Main';
 
 export const MainPage = () => {
-  return (
-    <Main/>
-  )
+  return <Main />;
 };
