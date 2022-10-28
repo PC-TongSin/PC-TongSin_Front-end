@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const BigDiv = styled.div`
   position: relative;
+  border: 1px solid white;
 `;
 
 export const Div = styled.div`
@@ -24,12 +25,12 @@ export const Input = styled.input`
   flex: 2.5;
   line-height: 1.6rem;
   outline: none;
-  color: ${(props) => props.theme.WHITE };
-  font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code";
+  color: ${(props) => props.theme.WHITE};
+  font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
   font-size: 1.2rem;
   background: transparent;
   border: none;
-  border-bottom: 2px solid ${(props) => props.theme.WHITE };
+  border-bottom: 2px solid ${(props) => props.theme.WHITE};
 `;
 
 export const CheckButton = styled.button`
