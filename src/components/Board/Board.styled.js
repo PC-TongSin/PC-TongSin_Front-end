@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const BoardListContainer = styled.div`
-  width: 70rem;
-  height: 30vh;
-  margin: 0 auto;
-`
+// export const BoardListContainer = styled.div`
+//   width: 70rem;
+//   height: 30vh;
+//   margin: 0 auto;
+// `
 
 export const BoardContainer = styled.table`
   margin: 0 auto;

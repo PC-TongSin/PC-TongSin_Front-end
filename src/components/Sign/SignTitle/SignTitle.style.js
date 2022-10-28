@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const LoginTitleSection = styled.section`
   height: 16rem;
   width: 100%;
+  min-width: 50rem;
   position: relative;
   display: flex;
   justify-content: center;

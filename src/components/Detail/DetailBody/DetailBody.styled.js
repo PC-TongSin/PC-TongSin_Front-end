@@ -24,7 +24,7 @@ export const DetailTitle = styled.h1`
   padding-bottom: 3rem;
 `
 
-export const DetailInfo = styled.thead`
+export const DetailInfo = styled.div`
   display: flex;
   margin: 0 auto;
   justify-content: space-evenly;

@@ -11,7 +11,7 @@ export const Board = () => {
   const navigate = useNavigate();
 
   return (
-    <BoardListContainer>
+    // <BoardListContainer>
       <BoardContainer>
           <thead>
             <tr>
@@ -134,7 +134,7 @@ export const Board = () => {
             </tr>
           </tbody>
       </BoardContainer>
-    </BoardListContainer>
+    // </BoardListContainer>
   );
 };
 

@@ -6,6 +6,7 @@ export const Section = styled.section`
   position: relative;
   padding: 4.5rem;
   display: flex;
+  min-width: 50rem;
   flex-direction: column;
   justify-content: center;
   /* background-color: ${(props) => props.theme.GREY}; */

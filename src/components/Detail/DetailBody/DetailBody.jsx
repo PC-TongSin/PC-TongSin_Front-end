@@ -1,4 +1,7 @@
-import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody } from "./Detail.styled"
+import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody } from "./DetailBody.styled"
+import { CommentList } from "../../Comment/CommentList/CommentList";
+import { CommentInput } from "../../Comment/CommentInput/CommentInput"
+import { CommentMisc } from "../../Comment/CommentModal/CommentMisc";
 
 export const Detail = () => {
   return (
@@ -25,6 +28,14 @@ export const Detail = () => {
         내용입니다.        내용입니다.
         내용입니다.        내용입니다.
       </DetailBody>
+
+      <DetailInfo/>
+      <CommentInput/>
+      <CommentList/>
+      <CommentList/>
+      <CommentList/>
+      <CommentList/>
+      <CommentList/>
     </DetailContainer>
   )
 };
