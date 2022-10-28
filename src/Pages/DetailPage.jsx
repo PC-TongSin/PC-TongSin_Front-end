@@ -7,6 +7,5 @@ export const DetailPage = () => {
       <Header/>
       <Detail/>
     </>
-
   )
 }

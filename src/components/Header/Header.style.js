@@ -10,9 +10,15 @@ export const HeaderSection = styled.section`
 export const HeaderButton = styled.button`
   flex: 1;
   margin: 0 0.8rem;
-
   height: 3rem;
   font-size: 1.7rem;
   font-family: 'Neo둥근모 Code';
-  background-color: #d9d9d9;
+  background: transparent;
+  color: white;
+  border: 1px solid ${(props) => props.theme.WHITE};
+  transition: all 0.3s;
+  &:hover {
+    background: ${(props) => props.theme.GREY};
+    color: ${(props) => props.theme.BLACK};
+  }
 `;

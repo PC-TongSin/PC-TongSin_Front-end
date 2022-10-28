@@ -8,7 +8,6 @@ export const LoginTitleSection = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* background-color: ${(props) => props.theme.GREY}; */
   margin-bottom: 1rem;
   border: 2px solid ${(props) => props.theme.WHITE};
 `;
@@ -25,5 +24,4 @@ export const LoginTitleH1 = styled.h1`
   @media screen and (width: 768px){
     font-size: 2rem;
   }
-    
 `;
