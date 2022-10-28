@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const BigDiv = styled.div`
   position: relative;
-  border: 1px solid white;
 `;
 
 export const Div = styled.div`

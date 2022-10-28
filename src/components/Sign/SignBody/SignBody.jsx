@@ -2,9 +2,10 @@ import React from 'react';
 import * as B from './SignBody.style';
 import SignInput from './SignInput/SignInput';
 
-import { __postUser } from "../../../redux/modules/userSlice"
+import { __postUser } from "../../../redux/modules/Slice/userSlice"
 import { useDispatch } from "react-redux";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SignBody = ({}) => {
 
@@ -69,6 +70,7 @@ const SignBody = ({}) => {
           />
         <B.Button>회원가입</B.Button>
         </form>
+        <Link>로그인하기</Link>
       </B.Section>
     </>
   );

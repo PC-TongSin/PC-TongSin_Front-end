@@ -1,8 +1,34 @@
 import styled from "styled-components";
+import { __addComment } from "../../../redux/modules/Slice/commentSlice";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const CommentInput = () => {
+
+  const id = useParams();
+  const dispatch = useDispatch();
+
+  const [comment, setComment] = useState("");
+  const commentChangeHandler = (e) => {
+    e.preventDefault();
+    setComment(e.target.value);
+  };
+
+  console.log(comment)
+
   return (
-    <StCommnetInput></StCommnetInput>
+    <div>
+      <StCommnetInput
+        onChange={commentChangeHandler}
+      />
+      <button
+        onClick={() => {
+          dispatch(__addComment({id, comment}))
+        }}
+      >댓글 달기</button>
+    </div>  
+
   )
 };
 
