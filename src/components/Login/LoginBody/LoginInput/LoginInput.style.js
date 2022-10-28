@@ -6,13 +6,12 @@ export const BigDiv = styled.div`
 
 export const Div = styled.div`
   width: 100%;
-
   display: flex;
   align-items: center;
 `;
 
 export const Span = styled.span`
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
 export const SmallDiv = styled.div`
@@ -20,9 +19,15 @@ export const SmallDiv = styled.div`
 `;
 
 export const Input = styled.input`
-  border: 2px solid black;
   flex: 2.5;
   line-height: 1.6rem;
+  outline: none;
+  color: ${(props) => props.theme.WHITE };
+  font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code";
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid ${(props) => props.theme.WHITE };
 `;
 
 export const CheckButton = styled.button`
@@ -47,6 +52,6 @@ export const InputSpan = styled.span`
   left: 34%;
   margin: 1rem 0;
   display: inline-block;
-
   color: ${(props) => props.theme.RED};
+  opacity: 0;
 `;

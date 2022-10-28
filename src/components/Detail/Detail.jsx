@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody } from "./Detail.styled"
 
 export const Detail = () => {

@@ -8,7 +8,8 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${(props) => props.theme.GREY};
+  /* background-color: ${(props) => props.theme.GREY}; */
+  border: 2px solid ${(props) => props.theme.WHITE};
 `;
 
 export const Button = styled.button`
