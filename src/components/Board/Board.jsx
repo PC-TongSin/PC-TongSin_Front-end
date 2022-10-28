@@ -20,7 +20,7 @@ export const Board = () => {
           <tr>
             <BoardItemSmall>1</BoardItemSmall>
             <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>털보코딩</BoardItemMedium>
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>0</BoardItemSmall>
@@ -28,8 +28,8 @@ export const Board = () => {
           </tr>
           <tr>
             <BoardItemSmall>2</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemSmall>김병기</BoardItemSmall>
+            <BoardItemMedium>천마지존</BoardItemMedium>
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>1</BoardItemSmall>
@@ -37,8 +37,8 @@ export const Board = () => {
           </tr>
           <tr>
             <BoardItemSmall>3</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemSmall>장지윤</BoardItemSmall>
+            <BoardItemMedium>핑크감자</BoardItemMedium>
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>2</BoardItemSmall>
@@ -46,8 +46,8 @@ export const Board = () => {
           </tr>
           <tr>
             <BoardItemSmall>4</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemSmall>김연태</BoardItemSmall>
+            <BoardItemMedium>말랑가지</BoardItemMedium>
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>3</BoardItemSmall>
@@ -55,30 +55,12 @@ export const Board = () => {
           </tr>
           <tr>
             <BoardItemSmall>5</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemSmall>조재신</BoardItemSmall>
             <BoardItemMedium>핑크겅듀</BoardItemMedium>
             <BoardItemMedium>2022-10-28</BoardItemMedium>
             <BoardItemSmall>14</BoardItemSmall>
             <BoardItemSmall>3</BoardItemSmall>
             <BoardItemLarge>엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!</BoardItemLarge>
-          </tr>
-          <tr>
-            <BoardItemSmall>6</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
-            <BoardItemMedium>2022-10-28</BoardItemMedium>
-            <BoardItemSmall>14</BoardItemSmall>
-            <BoardItemSmall>3</BoardItemSmall>
-            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
-          </tr>
-          <tr>
-            <BoardItemSmall>7</BoardItemSmall>
-            <BoardItemSmall>김성호</BoardItemSmall>
-            <BoardItemMedium>핑크겅듀</BoardItemMedium>
-            <BoardItemMedium>2022-10-28</BoardItemMedium>
-            <BoardItemSmall>14</BoardItemSmall>
-            <BoardItemSmall>3</BoardItemSmall>
-            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
           </tr>
 
         </tbody>
