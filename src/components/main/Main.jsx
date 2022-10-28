@@ -23,7 +23,7 @@ export const Main = () => {
   return(
     <MainContainer>
       <MainBanner>
-        <h1>Logo</h1>
+        <h1>콤-퓨타 통신</h1>
         <p>copyright 1995 SDS</p>
       </MainBanner>
       <MainInfo>[FE]: 김성호, 조재신</MainInfo>
