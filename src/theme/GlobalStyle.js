@@ -5,14 +5,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   };
 
-
-
-button {
-  outline: 0;
-  cursor: pointer;
-  border: 0;
-}
-
+  button {
+    outline: 0;
+    cursor: pointer;
+    border: 0;
+  }
 
   body {
     background: ${({ theme }) => theme.bgColor};
