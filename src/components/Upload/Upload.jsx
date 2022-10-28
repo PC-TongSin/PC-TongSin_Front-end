@@ -15,19 +15,25 @@ const Upload = ({}) => {
         </U.TitleDiv>
 
         <U.ThinDiv>
-          <UploadBox>
-            <Span2>조재신</Span2>
-          </UploadBox>
-          <UploadBox>
-            <Span2>털보코딩</Span2>
-          </UploadBox>
-          <UploadBox>
-            <BoxInput />
-          </UploadBox>
-          {/* <UploadBox>
+          <U.ThinDiv2>
+            <UploadBox>
+              <Span2>조재신</Span2>
+            </UploadBox>
+            <UploadBox>
+              <Span2>털보코딩</Span2>
+            </UploadBox>
+            <UploadBox>
+              <BoxInput />
+            </UploadBox>
+            {/* <UploadBox>
             <BoxTextArea />
           </UploadBox> */}
-          <UploadTextareaBox />
+            <UploadTextareaBox />
+          </U.ThinDiv2>
+          <ButtonDiv>
+            <ButtonCancel>취소</ButtonCancel>
+            <ButtonSubmit>게시물 등록</ButtonSubmit>
+          </ButtonDiv>
         </U.ThinDiv>
       </U.Section>
     </>
@@ -35,7 +41,7 @@ const Upload = ({}) => {
 };
 export default Upload;
 
-export const BoxInput = styled.input`
+const BoxInput = styled.input`
   flex: 2.5;
   line-height: 1.6rem;
   outline: none;
@@ -47,7 +53,7 @@ export const BoxInput = styled.input`
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
 `;
 
-export const Span2 = styled.span`
+const Span2 = styled.span`
   flex: 2.5;
   line-height: 1.6rem;
   outline: none;
@@ -59,7 +65,7 @@ export const Span2 = styled.span`
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
 `;
 
-export const BoxTextArea = styled.textarea`
+const BoxTextArea = styled.textarea`
   flex: 2.5;
   line-height: 1.6rem;
   outline: none;
@@ -76,4 +82,31 @@ export const BoxTextArea = styled.textarea`
   &:hover {
     outline: none;
   }
+`;
+
+const ButtonDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ButtonCancel = styled.button`
+  background-color: ${(props) => props.theme.GREY};
+  width: 6rem;
+  height: 4rem;
+  font-size: 2rem;
+  color: ${(props) => props.theme.BLACK};
+  font-family: 'Neo둥근모 Code';
+  margin-left: 1rem;
+`;
+
+const ButtonSubmit = styled.button`
+  background-color: transparent;
+  width: 14rem;
+  height: 6rem;
+  font-size: 2rem;
+  font-family: 'Neo둥근모 Code';
+  color: ${(props) => props.theme.WHITE};
+  border: 1px solid ${(props) => props.theme.WHITE};
 `;
