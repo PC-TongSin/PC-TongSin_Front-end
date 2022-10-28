@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { BoardContainer, BoardItemSmall,BoardItemMedium, BoardItemLarge } from "./Board.styled"
 
 export const Board = () => {
   return (
@@ -16,66 +16,73 @@ export const Board = () => {
           </tr>
         </thead>
         <tbody>
+
           <tr>
-            <td>1</td>
-            <td>김성호</td>
-            <td>핑크겅듀</td>
-            <td>2022-10-28</td>
-            <td>14</td>
-            <td>3</td>
-            <td>하이텔은 살아있다</td>
+            <BoardItemSmall>1</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>0</BoardItemSmall>
+            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
           </tr>
           <tr>
-            <td>1</td>
-            <td>김성호</td>
-            <td>핑크겅듀</td>
-            <td>2022-10-28</td>
-            <td>14</td>
-            <td>3</td>
-            <td>하이텔은 살아있다</td>
+            <BoardItemSmall>2</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>1</BoardItemSmall>
+            <BoardItemLarge>내가 만든 쿠키</BoardItemLarge>
           </tr>
           <tr>
-            <td>1</td>
-            <td>김성호</td>
-            <td>핑크겅듀</td>
-            <td>2022-10-28</td>
-            <td>14</td>
-            <td>3</td>
-            <td>하이텔은 살아있다</td>
+            <BoardItemSmall>3</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>2</BoardItemSmall>
+            <BoardItemLarge>너를 위해 구웠지</BoardItemLarge>
           </tr>
           <tr>
-            <td>1</td>
-            <td>김성호</td>
-            <td>핑크겅듀</td>
-            <td>2022-10-28</td>
-            <td>14</td>
-            <td>3</td>
-            <td>하이텔은 살아있asdasdasdsaasdasdasdasdasd</td>
+            <BoardItemSmall>4</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>3</BoardItemSmall>
+            <BoardItemLarge>내가 만든 쿠키 너를 위해 구웠지</BoardItemLarge>
           </tr>
+          <tr>
+            <BoardItemSmall>5</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>3</BoardItemSmall>
+            <BoardItemLarge>엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!엄청 긴 타이틀!!!!</BoardItemLarge>
+          </tr>
+          <tr>
+            <BoardItemSmall>6</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>3</BoardItemSmall>
+            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
+          </tr>
+          <tr>
+            <BoardItemSmall>7</BoardItemSmall>
+            <BoardItemSmall>김성호</BoardItemSmall>
+            <BoardItemMedium>핑크겅듀</BoardItemMedium>
+            <BoardItemMedium>2022-10-28</BoardItemMedium>
+            <BoardItemSmall>14</BoardItemSmall>
+            <BoardItemSmall>3</BoardItemSmall>
+            <BoardItemLarge>하이텔은 살아있다</BoardItemLarge>
+          </tr>
+
         </tbody>
       </div>
     </BoardContainer>
   )
 };
-
-export const BoardContainer = styled.table`
-  margin: 0 auto;
-  margin-top: 6rem;
-  height: 80vh;
-  overflow: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  & th, td {
-    border-bottom: 1px solid white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-right: 5rem;
-  }
-`
-
-// export const BoardItemTitle = styled.td`
-//   width
-// `
