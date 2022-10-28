@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header/Header';
+import Upload from '../components/Upload/Upload';
 
 const UploadPage = ({}) => {
   return (
     <>
       <Header />
       <Layout>
-        <h1>hihi</h1>
+        <Upload />
       </Layout>
     </>
   );

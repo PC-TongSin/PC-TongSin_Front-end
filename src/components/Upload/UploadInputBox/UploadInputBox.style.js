@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const BigDiv = styled.div`
   position: relative;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  margin: 2rem 0;
 `;
 
 export const Div = styled.div`
@@ -29,30 +30,4 @@ export const Input = styled.input`
   background: transparent;
   border: none;
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
-`;
-
-export const CheckButton = styled.button`
-  font-size: 1rem;
-  flex: 1;
-  font-family: 'Neo둥근모 Code';
-  background-color: ${(props) => props.theme.GREY};
-  padding: 0;
-`;
-export const FakeCheckButton = styled.div`
-  flex: 1;
-  background-color: ${(props) => props.theme.GREY};
-`;
-
-export const InputDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const InputSpan = styled.span`
-  position: relative;
-  left: 34%;
-  margin: 1rem 0;
-  display: inline-block;
-  color: ${(props) => props.theme.RED};
-  opacity: 0;
 `;
