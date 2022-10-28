@@ -6,7 +6,7 @@ const LoginTitle = ({}) => {
   return (
     <>
       <T.LoginTitleSection>
-        <T.LoginTitleH1>피씨 - 통신</T.LoginTitleH1>
+        <T.LoginTitleH1>콤-퓨타 통신</T.LoginTitleH1>
       </T.LoginTitleSection>
     </>
   );
