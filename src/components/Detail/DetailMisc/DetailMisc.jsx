@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { __getBoardId } from "../../../redux/modules/Slice/boardSlice";
 import { __getUsername } from "../../../redux/modules/Slice/userSlice";
-import { DetailMiscContainer, Like } from "./DetailMisc.styled"
+import { DetailMiscContainer, Like } from "./DetailMisc.styled";
 
 export const DetailMisc = () => {
 
