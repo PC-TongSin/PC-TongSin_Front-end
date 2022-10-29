@@ -2,39 +2,40 @@ import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody } fr
 import { CommentList } from "../../Comment/CommentList/CommentList";
 import { CommentInput } from "../../Comment/CommentInput/CommentInput"
 import { CommentMisc } from "../../Comment/CommentModal/CommentMisc";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { __getBoardId } from "../../../redux/modules/Slice/boardSlice";
 
 export const Detail = () => {
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  // console.log(id);
+
+  useEffect(() => {
+    dispatch(__getBoardId(id));
+  }, [dispatch, id]);
+
+  const boardItem = useSelector((state) => state.boards.board);
+  console.log(boardItem);
+
   return (
     <DetailContainer>
       <DetailNotice>
         [공지] 안내 메시지입니다.
         항상 커밋을 잘 하십시오.
       </DetailNotice>
-      <DetailTitle>제목입니다.</DetailTitle>
+      <DetailTitle>{ boardItem?.title }</DetailTitle>
       <DetailInfo>
-        <p>김성호</p><p></p><p></p>   <p></p> <p>좋아요: 14</p> <p></p> <p>2022-10-29</p>
+        <p>{ boardItem?.author }</p><p></p><p></p><p></p><p>좋아요: { boardItem?.totalHeartCount }</p><p></p><p>{ boardItem?.createdAt?.substr(0,10) }</p>
       </DetailInfo>
       <DetailBody>
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
-        내용입니다.        내용입니다.
+        { boardItem.content }
       </DetailBody>
 
       <DetailInfo/>
       <CommentInput/>
-      <CommentList/>
-      <CommentList/>
-      <CommentList/>
-      <CommentList/>
       <CommentList/>
     </DetailContainer>
   )

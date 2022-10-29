@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getBoardApi } from "../API/boardAPI";
+import { getBoardApi, getBoardIdApi } from "../API/boardAPI";
 
 export const __getBoard = createAsyncThunk(
   "getBoard",
@@ -13,10 +13,23 @@ export const __getBoard = createAsyncThunk(
   }
 );
 
+export const __getBoardId = createAsyncThunk(
+  "getBoard_ID",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await getBoardIdApi(payload);
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+)
+
 export const boardSlice = createSlice({
   name: "boards",
   initialState: {
     boards: [],
+    board: {},
     isLoading: false,
     error: null,
   },
@@ -34,6 +47,19 @@ export const boardSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    // GET Request one Board Item
+    [__getBoardId.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__getBoardId.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.board = action.payload;
+    },
+    [__getBoardId.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    }
   }
 });
 

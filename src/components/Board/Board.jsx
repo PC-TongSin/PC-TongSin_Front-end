@@ -46,7 +46,7 @@ export const Board = () => {
                   <BoardItemSmall>{ item.totalHeartCount }</BoardItemSmall>
                   <BoardItemLarge
                     onClick={() => {
-                      navigate('/detail');
+                      navigate(`/api/boards/${item.id}`);
                     }}
                   >
                     { item.title }

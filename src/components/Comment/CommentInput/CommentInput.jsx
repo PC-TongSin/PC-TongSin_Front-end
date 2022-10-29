@@ -6,16 +6,17 @@ import { useParams } from "react-router-dom";
 
 export const CommentInput = () => {
 
-  const id = useParams();
+  const { id } = useParams();
+  const board_id = id
   const dispatch = useDispatch();
 
-  const [comment, setComment] = useState("");
+  const [content, setComment] = useState("");
   const commentChangeHandler = (e) => {
     e.preventDefault();
     setComment(e.target.value);
   };
 
-  console.log(comment)
+  // console.log(comment)
 
   return (
     <div>
@@ -24,7 +25,7 @@ export const CommentInput = () => {
       />
       <button
         onClick={() => {
-          dispatch(__addComment({id, comment}))
+          dispatch(__addComment({ board_id, content }))
         }}
       >댓글 달기</button>
     </div>  
