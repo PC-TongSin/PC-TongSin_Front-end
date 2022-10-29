@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as T from './SignTitle.style';
 
-const LoginTitle = ({}) => {
+const SignTitle = ({}) => {
   return (
     <>
       <T.LoginTitleSection>
@@ -11,4 +11,4 @@ const LoginTitle = ({}) => {
     </>
   );
 };
-export default LoginTitle;
+export default SignTitle;
