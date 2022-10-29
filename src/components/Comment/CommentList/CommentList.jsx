@@ -28,7 +28,6 @@ export const CommentList = () => {
               <StCommentContent>{ item.content }</StCommentContent>
               <StComment>{ item.author }</StComment>
               <StCommentDelBtn onClick={() => {
-                console.log("삭제버튼임")
                 dispatch(__delComment(item.id))
               }}>X</StCommentDelBtn>
             </Comments>

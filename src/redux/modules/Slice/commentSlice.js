@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addCommentApi, delCommentApi } from "../API/commentAPI";
+import { addCommentApi, delCommentApi, editCommentApi } from "../API/commentAPI";
 
 export const __addComment = createAsyncThunk(
   "addComment",
@@ -19,6 +19,18 @@ export const __delComment = createAsyncThunk(
     try {
       await delCommentApi(payload);
       thunkAPI.fulfillWithValue(payload);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __editComment = createAsyncThunk(
+  "editComment",
+  async (payload, thunkAPI) => {
+    try {
+      await editCommentApi(payload)
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -58,7 +70,22 @@ export const commentSlice = createSlice({
     [__delComment.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-    }
+    },
+
+    // EDIT Request Comment
+    [__editComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__editComment.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.comment = state.comment.map((item) => {
+        return item.id === action.payload.id ? action.payload : item
+      });
+    },
+    [__editComment.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    },
   }
 });
 
