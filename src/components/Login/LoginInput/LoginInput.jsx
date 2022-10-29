@@ -29,13 +29,11 @@ const LoginInput = ({
             onChange={onChangeHandler}
           />
 
-          {
-            repeteCheck ? (
-              <L.CheckButton onClick={handleRepeat}>중복체크</L.CheckButton>
-            ) : (
-              <L.FakeCheckButton></L.FakeCheckButton>
-            )
-          }
+          {repeteCheck ? (
+            <L.CheckButton onClick={handleRepeat}>중복체크</L.CheckButton>
+          ) : (
+            <L.FakeCheckButton></L.FakeCheckButton>
+          )}
         </L.Div>
         <L.InputSpan>아이디는 n~m 글자입니다.</L.InputSpan>
       </L.BigDiv>

@@ -50,11 +50,34 @@ export const InputDiv = styled.div`
   flex-direction: column;
 `;
 
-export const InputSpan = styled.span`
+export const MsgDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RepeatCheck = styled.span`
   position: relative;
-  left: 34%;
-  margin: 1rem 0;
-  display: inline-block;
-  color: ${(props) => props.theme.RED};
-  opacity: 0;
+  left: 14%;
+  ${({ repeatToggle }) => {
+    if (repeatToggle) {
+      return 'margin: 1rem 2rem; ';
+    } else {
+      return 'inline-block';
+    }
+  }};
+
+  color: ${(props) => {
+    if (props.textColorToggle) {
+      return props.theme.WHITE;
+    } else {
+      return props.theme.RED;
+    }
+  }};
+  display: ${({ repeatToggle }) => {
+    if (repeatToggle) {
+      return 'inline-block';
+    } else {
+      return 'none';
+    }
+  }};
 `;
