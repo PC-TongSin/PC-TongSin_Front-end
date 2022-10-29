@@ -30,6 +30,10 @@ export const ThinDiv = styled.div`
   z-index: -1;
   border: 1px solid ${(props) => props.theme.WHITE};
   min-height: 10rem;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   padding-top: 5rem;
+`;
+
+export const ThinDiv2 = styled.div`
+  padding: 0 2rem;
 `;
