@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addCommentApi } from "../API/commentAPI";
+import { addCommentApi, delCommentApi } from "../API/commentAPI";
 
 export const __addComment = createAsyncThunk(
   "addComment",
@@ -7,6 +7,18 @@ export const __addComment = createAsyncThunk(
     try {
       const response = await addCommentApi(payload);
       return thunkAPI.fulfillWithValue(response)
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __delComment = createAsyncThunk(
+  "delComment",
+  async (payload, thunkAPI) => {
+    try {
+      await delCommentApi(payload);
+      thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -22,6 +34,7 @@ export const commentSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
+    // POST Request Comment
     [__addComment.pending]: (state) => {
       state.isLoading = true;
     },
@@ -33,5 +46,20 @@ export const commentSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    // DELETE Request Comment
+    [__delComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__delComment.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.comment = state.comment.filter((item) => item.id !== action.payload)
+    },
+    [__delComment.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    }
   }
-})
+});
+
+export default commentSlice.reducer;

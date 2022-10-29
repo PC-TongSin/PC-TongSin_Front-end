@@ -34,12 +34,12 @@ export const Main = () => {
           theme === "light" ? 
           <>
             <img src="https://ifh.cc/g/vt2KF2.png" alt="blueBold"/>
-            <img src="https://ifh.cc/g/SCSRsX.png" alt="blue" />
+            {/* <img src="https://ifh.cc/g/SCSRsX.png" alt="blue" /> */}
           </>  
              : 
           <>
-            <img src="https://ifh.cc/g/ZDkG9K.png" alt="black2"/>
             <img src="https://ifh.cc/g/ZCrX0r.png" alt="blackBold"/>
+            {/* <img src="https://ifh.cc/g/ZDkG9K.png" alt="black2"/> */}
           </>
         }
 

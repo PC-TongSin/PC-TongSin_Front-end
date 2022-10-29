@@ -36,6 +36,7 @@ export const BoardItemSmall = styled.td`
 export const BoardItemMedium = styled.td`
   width: 10rem;
   min-width: 7rem;
+  max-height: 2rem;
   height: 2rem;
   text-align: center;
 `

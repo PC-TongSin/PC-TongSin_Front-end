@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { __getBoard } from '../../redux/modules/Slice/boardSlice';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 export const Board = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export const Board = () => {
             <th>번호</th>
             <th>작성자</th>
             <th>닉네임</th>
+            <th>날 짜</th>
             <th>조회 수</th>
             <th>댓글 수</th>
             <th>추천 수</th>
@@ -40,6 +42,7 @@ export const Board = () => {
                 <tr key={ item.id }>
                   <BoardItemSmall>{ item.id }</BoardItemSmall>
                   <BoardItemSmall>{ item.author }</BoardItemSmall>
+                  <BoardItemSmall>{ item.nickname }</BoardItemSmall>
                   <BoardItemMedium>{ item.createdAt.substr(0,10) }</BoardItemMedium>
                   <BoardItemSmall>{ item.hit }</BoardItemSmall>
                   <BoardItemSmall>{ item.totalCommentCount }</BoardItemSmall>
@@ -59,4 +62,3 @@ export const Board = () => {
     </BoardContainer>
   );
 };
-

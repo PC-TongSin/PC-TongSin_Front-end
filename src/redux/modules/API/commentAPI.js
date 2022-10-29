@@ -12,3 +12,11 @@ export const addCommentApi = async (payload) => {
   });
   return response.data
 };
+
+export const delCommentApi = async (payload) => {
+  await axios.delete(`${BASE_URL}/api/comments/${payload}`, {
+    headers: {
+      Authorization: accessToken,
+    }
+  })
+}

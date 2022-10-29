@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import { __addComment } from "../../../redux/modules/Slice/commentSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { StCommentInputContainer, StCommentInput, StCommentBtn } from "./CommentInput.styled";
 
 export const CommentInput = () => {
 
@@ -19,33 +19,18 @@ export const CommentInput = () => {
   // console.log(comment)
 
   return (
-    <div>
-      <StCommnetInput
+    <StCommentInputContainer>
+      <StCommentInput
         onChange={commentChangeHandler}
         placeholder="댓글을 달아보세요"
         maxLength="30"
       />
-      <button
+      <StCommentBtn
         onClick={() => {
           dispatch(__addComment({ board_id, content }))
         }}
-      >댓글 달기</button>
-    </div>  
+      >댓글 달기</StCommentBtn>
+    </StCommentInputContainer>  
 
   )
 };
-
-export const StCommnetInput = styled.input`
-  display: flex;
-  width: 40rem;
-  margin: 0 auto;
-  margin-top: 2rem;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  background: transparent;
-  outline: none;
-  border: none;
-  font-family: "Neo둥근모 Code", "Neo둥근모Code", "neodgm-code";
-  color: ${(props) => props.theme.WHITE};
-  border-bottom: 1px solid ${(props) => props.theme.WHITE};
-`
