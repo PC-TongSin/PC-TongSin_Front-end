@@ -29,8 +29,9 @@ export const __editComment = createAsyncThunk(
   "editComment",
   async (payload, thunkAPI) => {
     try {
-      await editCommentApi(payload)
-      return thunkAPI.fulfillWithValue(payload);
+      const response = await editCommentApi(payload)
+      console.log(response.data)
+      return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

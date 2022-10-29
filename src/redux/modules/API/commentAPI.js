@@ -22,9 +22,13 @@ export const delCommentApi = async (payload) => {
 };
 
 export const editCommentApi = async (payload) => {
+  console.log(payload)
+  console.log(typeof payload.id);
+  console.log(typeof payload.content);
   await axios.put(`${BASE_URL}/api/comments/${payload.id}`, payload.content, {
     headers: {
       Authorization: accessToken,
+      "Content-Type": "application/json", // 400에러 뜨고, 이거 하니까 성공함 Special Thanks To 창욱님
     }
   })
 };

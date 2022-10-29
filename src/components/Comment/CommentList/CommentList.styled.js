@@ -20,7 +20,7 @@ export const StComment = styled.p`
 
 export const StCommentDelBtn = styled.p`
   border: none;
-  width: 20px;
+  width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
