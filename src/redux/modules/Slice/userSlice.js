@@ -11,7 +11,7 @@ export const __postUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(error);
     }
   }
-)
+);
 
 export const userSlice = createSlice({
   name:"users",

@@ -23,6 +23,7 @@ const SignBody = ({}) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
+  
   const onSubmitHandlers = (e) => {
     e.preventDefault();
     dispatch(__postUser(input));
@@ -71,4 +72,5 @@ const SignBody = ({}) => {
     </>
   );
 };
+
 export default SignBody;
