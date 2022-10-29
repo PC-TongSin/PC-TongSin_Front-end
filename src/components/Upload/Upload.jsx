@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as U from './Upload.style';
@@ -18,9 +19,26 @@ const Upload = ({}) => {
     setInput({ ...input, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(input);
+
+    const accessToken = localStorage.getItem('accessToken');
+    const response = await axios.post(
+      `${process.env.REACT_APP_SERVER}/api/boards`,
+      {
+        title: input.title,
+        content: input.content,
+      },
+      {
+        headers: {
+          Authorization: accessToken,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log(response);
   };
 
   const handleCancel = (e) => {

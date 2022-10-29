@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useHistory, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ChatPage = ({}) => {
   const navigate = useNavigate();

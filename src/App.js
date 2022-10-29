@@ -10,15 +10,15 @@ function App() {
 
   const toggleTheme = () => {
     if (theme === 'light') {
-      localStorage.setItem("theme", "dark")
+      localStorage.setItem('theme', 'dark');
       setTheme('dark');
     } else {
-      localStorage.setItem("theme", "light")
+      localStorage.setItem('theme', 'light');
       setTheme('light');
     }
   };
 
-  const myTheme = localStorage.getItem("theme")
+  const myTheme = localStorage.getItem('theme');
 
   return (
     <ThemeProvider theme={myTheme === 'light' ? LightTheme : DarkTheme}>
