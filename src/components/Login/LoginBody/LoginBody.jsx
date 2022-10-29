@@ -39,7 +39,7 @@ const LoginBody = ({}) => {
         if (response.meta.requestStatus === 'fulfilled') {
           console.log('성공');
           window.confirm(`로그인 성공!`);
-          // navigate(`/`);
+          navigate(`/board`);
         } else {
           window.confirm(`${response.payload.response.data.errorMessage}`);
         }
