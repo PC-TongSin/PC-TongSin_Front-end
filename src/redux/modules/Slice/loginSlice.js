@@ -19,7 +19,11 @@ export const loginSlice = createSlice({
   initialState: {
     loginInfo: [],
   },
-  reducers: {},
+  reducers: {
+    handleLoginDispatch: (state, action) => {
+      state.isLogin = true;
+    },
+  },
   extraReducers: {
     [__loginUser.fulfilled]: (state, action) => {
       state.loginInfo.push(action.payload);
