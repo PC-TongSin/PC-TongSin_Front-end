@@ -1,8 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getBoardApi, getBoardIdApi } from "../API/boardAPI";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  deleteBoardIdApi,
+  fixBoardIdApi,
+  getBoardApi,
+  getBoardIdApi,
+} from '../API/boardAPI';
 
 export const __getBoard = createAsyncThunk(
-  "getBoard",
+  'getBoard',
   async (payload, thunkAPI) => {
     try {
       const response = await getBoardApi(payload);
@@ -14,7 +19,7 @@ export const __getBoard = createAsyncThunk(
 );
 
 export const __getBoardId = createAsyncThunk(
-  "getBoard_ID",
+  'getBoard_ID',
   async (payload, thunkAPI) => {
     try {
       const response = await getBoardIdApi(payload);
@@ -23,10 +28,38 @@ export const __getBoardId = createAsyncThunk(
       return thunkAPI.rejectWithValue(error);
     }
   }
-)
+);
+
+export const __fixBoardId = createAsyncThunk(
+  'fixBoard_ID',
+  async (payload, thunkAPI) => {
+    try {
+      console.log(payload);
+      const response = await fixBoardIdApi(payload.id, payload.data);
+
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// delete
+
+export const __deleteBoardId = createAsyncThunk(
+  'fixBoard_ID',
+  async (payload, thunkAPI) => {
+    try {
+      const response = await deleteBoardIdApi(payload);
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const boardSlice = createSlice({
-  name: "boards",
+  name: 'boards',
   initialState: {
     boards: [],
     board: {},
@@ -59,8 +92,32 @@ export const boardSlice = createSlice({
     [__getBoardId.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-    }
-  }
+    },
+    // PUT Request one Board Item(수정)
+    [__fixBoardId.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__fixBoardId.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.board = action.payload;
+    },
+    [__fixBoardId.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    // DELETE Request one Board Item(삭제)
+    [__deleteBoardId.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__deleteBoardId.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.board = {};
+    },
+    [__deleteBoardId.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+  },
 });
 
-export default boardSlice
+export default boardSlice;

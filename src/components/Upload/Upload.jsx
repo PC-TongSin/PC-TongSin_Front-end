@@ -1,6 +1,13 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { __getBoardId } from '../../redux/modules/Slice/boardSlice';
+import {
+  __getNickname,
+  __getUsername,
+} from '../../redux/modules/Slice/userSlice';
 import * as U from './Upload.style';
 import UploadBox from './UploadBox/UploadBox';
 import UploadInputBox from './UploadInputBox/UploadInputBox';
@@ -8,6 +15,21 @@ import UploadTextareaBox from './UploadTextareaBox/UploadTextareaBox';
 import UploadTextBox from './UploadTextBox/UploadTextBox';
 
 const Upload = ({}) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { username, nickname } = useSelector((state) => state.users);
+  const [on, setOn] = useState(false);
+
+  useEffect(() => {
+    console.log(1);
+    dispatch(__getNickname());
+    dispatch(__getUsername());
+    setOn(true);
+  }, []);
+
+  console.log(username);
+  console.log(nickname);
+
   const [input, setInput] = useState({
     title: '',
     content: '',
@@ -37,8 +59,8 @@ const Upload = ({}) => {
         },
       }
     );
-
-    console.log(response);
+    window.confirm('업로드 완료');
+    navigate('/board');
   };
 
   const handleCancel = (e) => {
@@ -60,10 +82,12 @@ const Upload = ({}) => {
           <U.ThinDiv>
             <U.ThinDiv2>
               <UploadBox title='작성자'>
-                <Span2>조재신</Span2>
+                {on && <Span2>{username}</Span2>}
+                {/* <Span2>{username}</Span2> */}
               </UploadBox>
               <UploadBox title='닉네임'>
-                <Span2>털보코딩</Span2>
+                {on && <Span2>{nickname}</Span2>}
+                {/* <Span2>{nickname}</Span2> */}
               </UploadBox>
               <UploadBox>
                 <BoxInput

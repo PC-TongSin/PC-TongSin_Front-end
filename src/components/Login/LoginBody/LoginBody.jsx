@@ -5,6 +5,10 @@ import * as L from './LoginBody.style';
 import { __loginUser } from '../../../redux/modules/Slice/loginSlice';
 import { useDispatch } from 'react-redux';
 import { is_password, is_username } from '../../../common/logics';
+import {
+  __getNickname,
+  __getUsername,
+} from '../../../redux/modules/Slice/userSlice';
 
 const LoginBody = ({}) => {
   const navigate = useNavigate();
@@ -39,6 +43,8 @@ const LoginBody = ({}) => {
         if (response.meta.requestStatus === 'fulfilled') {
           console.log('성공');
           window.confirm(`로그인 성공!`);
+          dispatch(__getNickname());
+          dispatch(__getUsername());
           navigate(`/board`);
         } else {
           window.confirm(`${response.payload.response.data.errorMessage}`);

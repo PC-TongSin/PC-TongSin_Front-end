@@ -1,8 +1,12 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { postUserApi, getUsernameInfoApi, getNicknameInfoApi } from "../API/userAPI";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  postUserApi,
+  getUsernameInfoApi,
+  getNicknameInfoApi,
+} from '../API/userAPI';
 
 export const __postUser = createAsyncThunk(
-  "registerUser",
+  'registerUser',
   async (payload, thunkAPI) => {
     try {
       const response = await postUserApi(payload);
@@ -15,7 +19,7 @@ export const __postUser = createAsyncThunk(
 
 // username 불러오는 reducer (in 상세페이지)
 export const __getUsername = createAsyncThunk(
-  "getUserInfo",
+  'getUsername',
   async (payload, thunkAPI) => {
     try {
       const response = await getUsernameInfoApi(payload);
@@ -27,21 +31,20 @@ export const __getUsername = createAsyncThunk(
 );
 
 // 닉네임 불러오는 reducer (in 상세페이지)
-// export const __getNickname = createAsyncThunk(
-//   "getUserInfo",
-//   async (payload, thunkAPI) => {
-//     try {
-//       const response = await getNicknameInfoApi(payload);
-//       return thunkAPI.fulfillWithValue(response.data.data);
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error);
-//     }
-//   }
-// );
-
+export const __getNickname = createAsyncThunk(
+  'getNickname',
+  async (payload, thunkAPI) => {
+    try {
+      const response = await getNicknameInfoApi(payload);
+      return thunkAPI.fulfillWithValue(response.data.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const userSlice = createSlice({
-  name:"users",
+  name: 'users',
   initialState: {
     userInfo: [],
     username: null,
@@ -56,9 +59,9 @@ export const userSlice = createSlice({
       // console.log("유저네임임", action.payload);
       state.username = action.payload;
     },
-    // [__getNickname.fulfilled]: (state, action) => {
-    //   console.log("닉네임임", action.payload);
-    //   state.nickname = action.payload;
-    // }
-  }
+    [__getNickname.fulfilled]: (state, action) => {
+      // console.log("닉네임임", action.payload);
+      state.nickname = action.payload;
+    },
+  },
 });

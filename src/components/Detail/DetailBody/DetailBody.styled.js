@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DetailContainer = styled.div`
   margin-top: 10rem;
   width: 100%;
-`
+  background-color: purple;
+`;
 
 export const DetailNotice = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const DetailNotice = styled.div`
   border: 2.425px solid white;
   text-align: center;
   justify-content: center;
-`
+`;
 
 export const DetailTitle = styled.h1`
   width: 90%;
@@ -22,7 +23,9 @@ export const DetailTitle = styled.h1`
   padding-top: 5rem;
   border-bottom: 1px solid white;
   padding-bottom: 3rem;
-`
+`;
+
+export const DetailTextarea = styled.textarea``;
 
 export const DetailInfo = styled.div`
   display: flex;
@@ -36,13 +39,13 @@ export const DetailInfo = styled.div`
     width: 5rem;
     text-align: right;
   }
-`
+`;
 
 export const DetailBody = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 3rem;
-`
+`;
 
 export const DetailBtn = styled.button`
   display: flex;
@@ -54,4 +57,4 @@ export const DetailBtn = styled.button`
   font-family: 'Neo둥근모 Code';
   font-size: 1rem;
   margin-inline-end: 5.5em;
-`
+`;
