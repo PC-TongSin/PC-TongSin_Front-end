@@ -1,5 +1,4 @@
 import {
-  BoardListContainer,
   BoardContainer,
   BoardItemSmall,
   BoardItemMedium,
