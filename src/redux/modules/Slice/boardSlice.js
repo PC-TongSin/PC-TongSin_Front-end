@@ -4,6 +4,7 @@ import {
   fixBoardIdApi,
   getBoardApi,
   getBoardIdApi,
+  countHeartApi,
 } from '../API/boardAPI';
 
 export const __getBoard = createAsyncThunk(
@@ -52,6 +53,20 @@ export const __deleteBoardId = createAsyncThunk(
     try {
       const response = await deleteBoardIdApi(payload);
       return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __countHeart = createAsyncThunk(
+  "countHeart",
+  async (payload, thunkAPI) => {
+    console.log(payload);
+    try {
+      const response = await countHeartApi(payload);
+      console.log(response);
+      return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -117,6 +132,13 @@ export const boardSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    [__countHeart.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__countHeart.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    }
   },
 });
 

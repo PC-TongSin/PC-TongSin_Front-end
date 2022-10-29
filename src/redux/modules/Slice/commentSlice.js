@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { countHeartApi } from "../API/boardAPI";
 import { addCommentApi, delCommentApi, editCommentApi } from "../API/commentAPI";
 
 export const __addComment = createAsyncThunk(
@@ -35,18 +34,6 @@ export const __editComment = createAsyncThunk(
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
-    }
-  }
-);
-
-export const __countHeart = createAsyncThunk(
-  "countHeart",
-  async (payload, thunkAPI) => {
-    try {
-      const response = await countHeartApi(payload);
-      return thunkAPI.fulfillWithValue(response);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error)
     }
   }
 );
