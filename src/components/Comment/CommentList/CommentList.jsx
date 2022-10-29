@@ -13,7 +13,6 @@ export const CommentList = () => {
   const dispatch = useDispatch();
 
   const commentList = useSelector((state) => (state.boards.board.commentList));
-  console.log(commentList);
 
   const [isEdit, setIsEdit] = useState(false);
   const [content, setContent] = useState("");
@@ -21,7 +20,6 @@ export const CommentList = () => {
     e.preventDefault();
     setContent(e.target.value);
   };
-
 
   useEffect(() => {
     dispatch(__getBoardId(id));
@@ -56,7 +54,7 @@ export const CommentList = () => {
                     }}>수정</StCommentDelBtn>
               }
               <StCommentDelBtn onClick={() => {
-                dispatch(__delComment(item.id))
+                dispatch(__delComment(item.id));
               }}>X</StCommentDelBtn>
             </Comments>
           )
