@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
 
+  const theme = localStorage.getItem("theme")
+
   const navigate = useNavigate();
 
   const onClick = () => {
@@ -27,6 +29,20 @@ export const Main = () => {
     <MainContainer>
       <MainBanner>
         <h1>콤-퓨타 통신</h1>
+
+        {
+          theme === "light" ? 
+          <>
+            <img src="https://ifh.cc/g/vt2KF2.png" alt="blueBold"/>
+            <img src="https://ifh.cc/g/SCSRsX.png" alt="blue" />
+          </>  
+             : 
+          <>
+            <img src="https://ifh.cc/g/ZDkG9K.png" alt="black2"/>
+            <img src="https://ifh.cc/g/ZCrX0r.png" alt="blackBold"/>
+          </>
+        }
+
         <p>copyright 1995 SDS</p>
       </MainBanner>
       <MainInfo>[FE]: 김성호, 조재신</MainInfo>

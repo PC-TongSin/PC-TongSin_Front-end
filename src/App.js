@@ -10,14 +10,18 @@ function App() {
 
   const toggleTheme = () => {
     if (theme === 'light') {
+      localStorage.setItem("theme", "dark")
       setTheme('dark');
     } else {
+      localStorage.setItem("theme", "light")
       setTheme('light');
     }
   };
 
+  const myTheme = localStorage.getItem("theme")
+
   return (
-    <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+    <ThemeProvider theme={myTheme === 'light' ? LightTheme : DarkTheme}>
       <GlobalStyle />
       <div className='App'>
         <button onClick={toggleTheme}>눌러봐</button>
