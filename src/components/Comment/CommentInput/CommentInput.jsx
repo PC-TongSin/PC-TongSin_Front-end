@@ -22,6 +22,8 @@ export const CommentInput = () => {
     <div>
       <StCommnetInput
         onChange={commentChangeHandler}
+        placeholder="댓글을 달아보세요"
+        maxLength="30"
       />
       <button
         onClick={() => {

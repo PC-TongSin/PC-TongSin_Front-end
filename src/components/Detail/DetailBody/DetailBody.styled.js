@@ -43,3 +43,15 @@ export const DetailBody = styled.div`
   margin: 0 auto;
   padding: 3rem;
 `
+
+export const DetailBtn = styled.button`
+  display: flex;
+  float: right;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: ${(props) => props.theme.WHITE};
+  font-family: 'Neo둥근모 Code';
+  font-size: 1rem;
+  margin-inline-end: 5.5em;
+`

@@ -6,7 +6,7 @@ export const __getBoard = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await getBoardApi(payload);
-      return thunkAPI.fulfillWithValue(response);
+      return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

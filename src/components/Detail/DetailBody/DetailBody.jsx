@@ -1,24 +1,32 @@
-import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody } from "./DetailBody.styled"
+import { DetailContainer, DetailNotice, DetailTitle, DetailInfo, DetailBody, DetailBtn } from "./DetailBody.styled"
 import { CommentList } from "../../Comment/CommentList/CommentList";
 import { CommentInput } from "../../Comment/CommentInput/CommentInput"
-import { CommentMisc } from "../../Comment/CommentModal/CommentMisc";
+import { DetailMisc } from "../DetailMisc/DetailMisc";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { __getBoardId } from "../../../redux/modules/Slice/boardSlice";
+import { __getUsername } from "../../../redux/modules/Slice/userSlice"
 
 export const Detail = () => {
 
   const { id } = useParams();
   const dispatch = useDispatch();
-  // console.log(id);
+
 
   useEffect(() => {
     dispatch(__getBoardId(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    dispatch(__getUsername());
+  }, [dispatch])
+
   const boardItem = useSelector((state) => state.boards.board);
-  console.log(boardItem);
+  const username = useSelector((state) => state.users?.username);
+  localStorage.setItem("username", username)
+  
+  // console.log(username)
 
   return (
     <DetailContainer>
@@ -28,16 +36,23 @@ export const Detail = () => {
       </DetailNotice>
       <DetailTitle>{ boardItem?.title }</DetailTitle>
       <DetailInfo>
-        <p>{ boardItem?.author }</p><p></p><p></p><p></p><p>좋아요: { boardItem?.totalHeartCount }</p><p></p><p>{ boardItem?.createdAt?.substr(0,10) }</p>
+        <p>{ boardItem?.author }</p><p></p><p></p><p></p><p></p><p></p><p>{ boardItem?.createdAt?.substr(0,10) }</p>
       </DetailInfo>
+      {
+        username === boardItem.author ? (
+          <>
+            <DetailBtn>삭제</DetailBtn>
+            <DetailBtn>수정</DetailBtn>
+          </>
+        ) : null
+      }
       <DetailBody>
         { boardItem.content }
       </DetailBody>
 
+      <DetailMisc/>
+      
       <DetailInfo/>
-      <CommentInput/>
-      <CommentList/>
     </DetailContainer>
   )
 };
-

@@ -10,7 +10,7 @@ export const CommentList = () => {
   const dispatch = useDispatch();
 
   const commentList = useSelector((state) => state.boards.board.commentList);
-  console.log(commentList);
+  // console.log(commentList);
 
   useEffect(() => {
     dispatch(__getBoardId(id));
