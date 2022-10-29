@@ -21,6 +21,7 @@ const SignInput = ({
     if (name === 'username') {
       if (!is_username(input.username)) {
         setAlertToggle(true);
+        setTextColorToggle(false);
         setAlertMsg(alertMessage);
       } else {
         const response = await axios.post(
@@ -72,12 +73,22 @@ const SignInput = ({
             </I.Span>
           </I.SmallDiv>
 
-          <I.Input name={name} value={input[name]} onChange={onChangeHandler} />
+          <I.Input
+            name={name}
+            value={input[name]}
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+          />
 
           {repeteCheck ? (
-            <I.CheckButton onClick={handleRepeat}>중복체크</I.CheckButton>
+            <I.CheckButton onClick={handleRepeat}>
+              {textColorToggle ? 'checked\n(다시 체크하기)' : '중복체크'}
+            </I.CheckButton>
           ) : (
-            <I.FakeCheckButton></I.FakeCheckButton>
+            <I.FakeCheckButton>
+              {/* <I.FakeCheckButtonSpan>Checked</I.FakeCheckButtonSpan> */}
+            </I.FakeCheckButton>
           )}
         </I.Div>
         <I.MsgDiv>

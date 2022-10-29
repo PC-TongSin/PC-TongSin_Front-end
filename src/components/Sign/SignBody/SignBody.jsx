@@ -85,7 +85,6 @@ const SignBody = ({}) => {
             name='nickname'
             input={input}
             onChangeHandler={onChangeHandler}
-            // alertMessage=''
             repeatCheckUrl='/api/auth/checknickname'
           />
           <SignInput
@@ -102,7 +101,6 @@ const SignBody = ({}) => {
             type='password'
             name='passwordConfirm'
             input={input}
-            alertMessage=''
             onChangeHandler={onChangeHandler}
           />
           <B.Button>회원가입</B.Button>

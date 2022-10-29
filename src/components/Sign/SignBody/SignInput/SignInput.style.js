@@ -6,6 +6,7 @@ export const BigDiv = styled.div`
 
 export const Div = styled.div`
   width: 100%;
+  height: 4rem;
   display: flex;
   align-items: center;
   min-width: 15rem;
@@ -33,17 +34,23 @@ export const Input = styled.input`
 `;
 
 export const CheckButton = styled.button`
-  font-size: 1rem;
+  font-size: 1.2rem;
   flex: 1;
   font-family: 'Neo둥근모 Code';
   background-color: ${(props) => props.theme.GREY};
   padding: 0;
   min-width: 4rem;
+  height: 2.4rem;
 `;
 export const FakeCheckButton = styled.div`
   flex: 1;
   background-color: ${(props) => props.theme.GREY};
 `;
+// export const FakeCheckButtonSpan = styled.span`
+//   font-size: 2rem;
+
+//   background-color: ${(props) => props.theme.GREY};
+// `;
 
 export const InputDiv = styled.div`
   display: flex;
