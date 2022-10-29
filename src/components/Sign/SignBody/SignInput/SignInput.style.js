@@ -6,6 +6,7 @@ export const BigDiv = styled.div`
 
 export const Div = styled.div`
   width: 100%;
+  height: 4rem;
   display: flex;
   align-items: center;
   min-width: 15rem;
@@ -33,28 +34,57 @@ export const Input = styled.input`
 `;
 
 export const CheckButton = styled.button`
-  font-size: 1rem;
+  font-size: 1.2rem;
   flex: 1;
   font-family: 'Neo둥근모 Code';
   background-color: ${(props) => props.theme.GREY};
   padding: 0;
   min-width: 4rem;
+  height: 2.4rem;
 `;
 export const FakeCheckButton = styled.div`
   flex: 1;
   background-color: ${(props) => props.theme.GREY};
 `;
+// export const FakeCheckButtonSpan = styled.span`
+//   font-size: 2rem;
+
+//   background-color: ${(props) => props.theme.GREY};
+// `;
 
 export const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const InputSpan = styled.span`
+export const MsgDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RepeatCheck = styled.span`
   position: relative;
-  left: 34%;
-  margin: 1rem 0;
-  display: inline-block;
-  color: ${(props) => props.theme.RED};
-  opacity: 0;
+  left: 14%;
+  ${({ repeatToggle }) => {
+    if (repeatToggle) {
+      return 'margin: 1rem 2rem; ';
+    } else {
+      return 'inline-block';
+    }
+  }};
+
+  color: ${(props) => {
+    if (props.textColorToggle) {
+      return props.theme.WHITE;
+    } else {
+      return props.theme.RED;
+    }
+  }};
+  display: ${({ repeatToggle }) => {
+    if (repeatToggle) {
+      return 'inline-block';
+    } else {
+      return 'none';
+    }
+  }};
 `;

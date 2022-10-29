@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginInput from '../LoginInput/LoginInput';
 import * as L from './LoginBody.style';
-import { __loginUser } from "../../../redux/modules/Slice/loginSlice"
+import { __loginUser } from '../../../redux/modules/Slice/loginSlice';
 import { useDispatch } from 'react-redux';
+import { is_password, is_username } from '../../../common/logics';
 
 const LoginBody = ({}) => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,10 +21,32 @@ const LoginBody = ({}) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(__loginUser(input));
+
+    if (!is_username(input.username) && !is_password(input.password)) {
+      window.confirm('닉네임이 이상합니다! ');
+    } else if (!is_username(input.username) && is_password(input.password)) {
+      window.confirm('닉네임이 이상합니다! ');
+    } else if (is_username(input.username) && !is_password(input.password)) {
+      window.confirm('비번이 이상합니다!');
+    } else {
+      try {
+        const response = await dispatch(__loginUser(input));
+
+        // 임시방편
+        if (response.meta.requestStatus === 'fulfilled') {
+          console.log('성공');
+          window.confirm(`로그인 성공!`);
+          // navigate(`/`);
+        } else {
+          window.confirm(`${response.payload.response.data.errorMessage}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   return (
@@ -33,7 +55,7 @@ const LoginBody = ({}) => {
         <form onSubmit={handleSubmit}>
           <LoginInput
             id='아이디'
-            repeteCheck={true}
+            repeteCheck={false}
             name='username'
             value={input.username}
             onChangeHandler={onChangeHandler}
@@ -41,7 +63,7 @@ const LoginBody = ({}) => {
 
           <LoginInput
             id='비밀번호'
-            repeteCheck={true}
+            repeteCheck={false}
             name='password'
             value={input.password}
             onChangeHandler={onChangeHandler}
@@ -57,8 +79,8 @@ const LoginBody = ({}) => {
               회원가입
               <br />
               하러가기
-          </L.Button>
-          <L.Button type='submit'>로그인 하기</L.Button>
+            </L.Button>
+            <L.Button type='submit'>로그인 하기</L.Button>
           </L.ButtonDiv>
         </form>
       </L.Section>
