@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const DetailContainer = styled.div`
   margin-top: 10rem;
   width: 100%;
-  background-color: purple;
 `;
 
 export const DetailNotice = styled.div`
