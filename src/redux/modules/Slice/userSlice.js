@@ -56,7 +56,6 @@ export const userSlice = createSlice({
       state.userInfo.push(action.payload);
     },
     [__getUsername.fulfilled]: (state, action) => {
-      console.log('유저네임임', action.payload);
       state.username = action.payload;
     },
     [__getNickname.fulfilled]: (state, action) => {

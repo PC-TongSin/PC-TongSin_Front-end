@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { __getBoard } from '../../redux/modules/Slice/boardSlice';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
 
 export const Board = () => {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ export const Board = () => {
   }, [dispatch]);
 
   const boards = useSelector((state) => state?.boards?.boards);
-  console.log(boards);
 
   return (
     <BoardContainer>

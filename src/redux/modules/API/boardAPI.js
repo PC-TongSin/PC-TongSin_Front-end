@@ -15,8 +15,6 @@ export const getBoardIdApi = async (id) => {
 };
 
 export const fixBoardIdApi = async (id, data) => {
-  const accessToken = localStorage.getItem('accessToken');
-
   const response = await axios.put(`${BASE_URL}/api/boards/${id}`, data, {
     headers: {
       Authorization: accessToken,
@@ -38,7 +36,6 @@ export const deleteBoardIdApi = async (id) => {
 };
 
 export const countHeartApi = async (payload) => {
-  console.log(typeof payload.id);
   const response = await axios.post(`${BASE_URL}/api/hearts/${payload.id}`, {
     headers: {
       Authorization: accessToken,

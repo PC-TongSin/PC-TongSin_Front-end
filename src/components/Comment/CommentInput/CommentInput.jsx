@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { StCommentInputContainer, StCommentInput, StCommentBtn } from "./CommentInput.styled";
+import { __getBoardId } from '../../../redux/modules/Slice/boardSlice';
 
 export const CommentInput = () => {
 
@@ -10,10 +11,10 @@ export const CommentInput = () => {
   const board_id = id
   const dispatch = useDispatch();
 
-  const [content, setComment] = useState("");
+  const [content, setContent] = useState("");
   const commentChangeHandler = (e) => {
     e.preventDefault();
-    setComment(e.target.value);
+    setContent(e.target.value);
   };
 
   // console.log(comment)
@@ -23,11 +24,14 @@ export const CommentInput = () => {
       <StCommentInput
         onChange={commentChangeHandler}
         placeholder="댓글을 달아보세요"
+        value={content}
         maxLength="30"
       />
       <StCommentBtn
         onClick={() => {
-          dispatch(__addComment({ board_id, content }))
+          dispatch(__getBoardId(id));
+          dispatch(__addComment({ board_id, content }));
+          setContent("");
         }}
       >댓글 달기</StCommentBtn>
     </StCommentInputContainer>  

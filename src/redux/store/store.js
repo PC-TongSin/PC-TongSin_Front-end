@@ -9,6 +9,6 @@ export const store = configureStore({
     users: userSlice.reducer,
     boards: boardSlice.reducer,
     login: loginSlice.reducer,
-    Comment: commentSlice.reducer,
+    comment: commentSlice.reducer,
   },
 })

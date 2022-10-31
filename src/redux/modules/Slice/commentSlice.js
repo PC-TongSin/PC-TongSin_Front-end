@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { addCommentApi, delCommentApi, editCommentApi } from "../API/commentAPI";
 
+
 export const __addComment = createAsyncThunk(
   "addComment",
   async (payload, thunkAPI) => {
     try {
-      const response = await addCommentApi(payload);
-      return thunkAPI.fulfillWithValue(response)
+      await addCommentApi(payload);
+      return thunkAPI.fulfillWithValue(payload)
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -42,17 +43,24 @@ export const commentSlice = createSlice({
   name: "comments",
   initialState: {
     comment: [],
+    isCommentChanged: false,
     isLoading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    resetStatusComment : (state, _) => {
+      state.isCommentChanged = false;
+    }
+  },
   extraReducers: {
+
     // POST Request Comment
     [__addComment.pending]: (state) => {
       state.isLoading = true;
     },
     [__addComment.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.isCommentChanged = true;
       state.comment.push(action.payload);
     },
     [__addComment.rejected]: (state, action) => {
@@ -66,6 +74,7 @@ export const commentSlice = createSlice({
     },
     [__delComment.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.isCommentChanged = true;
       state.comment = state.comment.filter((item) => item.id !== action.payload)
     },
     [__delComment.rejected]: (state, action) => {
@@ -79,6 +88,7 @@ export const commentSlice = createSlice({
     },
     [__editComment.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.isCommentChanged = true;
       state.comment = state.comment.map((item) => {
         return item.id === action.payload.id ? action.payload : item
       });
@@ -90,4 +100,5 @@ export const commentSlice = createSlice({
   }
 });
 
+export const { resetStatusComment } = commentSlice.actions;
 export default commentSlice.reducer;

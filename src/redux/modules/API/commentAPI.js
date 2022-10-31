@@ -22,9 +22,6 @@ export const delCommentApi = async (payload) => {
 };
 
 export const editCommentApi = async (payload) => {
-  console.log(payload)
-  console.log(typeof payload.id);
-  console.log(typeof payload.content);
   await axios.put(`${BASE_URL}/api/comments/${payload.id}`, payload.content, {
     headers: {
       Authorization: accessToken,

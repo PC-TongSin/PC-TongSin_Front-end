@@ -31,3 +31,21 @@ export const StCommentDelBtn = styled.p`
     color: ${(props) => props.theme.BLACK};
   }
 `;
+
+export const StInput = styled.input`
+  background: transparent;
+  width: 17rem;
+  border: none;
+  outline: none;
+  color: ${(props) => props.theme.WHITE};
+  font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
+`;
+
+export const StEditInput = styled.input`
+  background: ${(props) => props.theme.WHITE};
+  width: 17rem;
+  border: border 1px ${(props) => props.theme.WHITE};
+  outline: none;
+  color: ${(props) => props.theme.BLACK};
+  font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
+`;

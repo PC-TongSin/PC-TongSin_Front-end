@@ -6,7 +6,7 @@ import { __getBoardId, __countHeart } from "../../../redux/modules/Slice/boardSl
 import { __getUsername } from "../../../redux/modules/Slice/userSlice";
 import { DetailMiscContainer, Like } from "./DetailMisc.styled";
 
-export const DetailMisc = () => {
+export const DetailMisc = ({ totalHeartCount }) => {
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const DetailMisc = () => {
   const username = localStorage.getItem("username");
 
   useEffect(() => {
-    dispatch(__getBoardId(id));
+    dispatch(__getBoardId(id)); // 이거때문에 hit 2개씩 올라감
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const DetailMisc = () => {
             }}
           >추천하기</Like>
       }
-      <p>{ heartList?.length }</p>
+      <p>{ totalHeartCount }</p>
     </DetailMiscContainer>
   )
 };

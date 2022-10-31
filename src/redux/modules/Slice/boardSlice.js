@@ -37,7 +37,6 @@ export const __fixBoardId = createAsyncThunk(
     try {
       console.log(payload);
       const response = await fixBoardIdApi(payload.id, payload.data);
-
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -46,9 +45,8 @@ export const __fixBoardId = createAsyncThunk(
 );
 
 // delete
-
 export const __deleteBoardId = createAsyncThunk(
-  'fixBoard_ID',
+  'delBoard_ID',
   async (payload, thunkAPI) => {
     try {
       const response = await deleteBoardIdApi(payload);
@@ -79,9 +77,14 @@ export const boardSlice = createSlice({
     boards: [],
     board: {},
     isLoading: false,
+    isBoardChanged: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    resetStatusBoard : (state, _) => {
+      state.isBoardChanged = false;
+    }
+  },
   extraReducers: {
     // GET Request BoardList
     [__getBoard.pending]: (state) => {
@@ -108,30 +111,35 @@ export const boardSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    
     // PUT Request one Board Item(수정)
     [__fixBoardId.pending]: (state) => {
       state.isLoading = true;
     },
     [__fixBoardId.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.isBoardChanged = true;
       state.board = action.payload;
     },
     [__fixBoardId.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },
+    
     // DELETE Request one Board Item(삭제)
     [__deleteBoardId.pending]: (state) => {
       state.isLoading = true;
     },
     [__deleteBoardId.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.isBoardChanged = true;
       state.board = {};
     },
     [__deleteBoardId.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },
+    
     [__countHeart.pending]: (state) => {
       state.isLoading = true;
     },
@@ -142,4 +150,5 @@ export const boardSlice = createSlice({
   },
 });
 
+export const { resetStatusBoard } = boardSlice.actions;
 export default boardSlice;

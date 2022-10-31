@@ -12,7 +12,7 @@ export const loginUserApi = async (payload) => {
   return response
 };
 
-export const getUsernameInfoApi = async (payload) => {
+export const getUsernameInfoApi = async () => {
   const response = await axios.get(`${BASE_URL}/api/mypage/userinfo/username`, {
     headers: {
       Authorization: accessToken,
@@ -21,7 +21,7 @@ export const getUsernameInfoApi = async (payload) => {
   return response
 };
 
-export const getNicknameInfoApi = async (payload) => {
+export const getNicknameInfoApi = async () => {
   const response = await axios.get(`${BASE_URL}/api/mypage/userinfo/nickname`, {
     headers: {
       Authorization: accessToken,
