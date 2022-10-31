@@ -6,7 +6,9 @@ export const __loginUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const response = await loginUserApi(payload);
+      console.log(response);
       localStorage.setItem('accessToken', response.headers.authorization);
+      localStorage.setItem('refreshToken', response.headers["refresh-token"]);
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
