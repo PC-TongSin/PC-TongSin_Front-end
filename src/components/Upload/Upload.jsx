@@ -20,12 +20,19 @@ const Upload = ({}) => {
   const { username, nickname } = useSelector((state) => state.users);
   const [on, setOn] = useState(false);
 
-  useEffect(() => {
+  console.log(username);
+  console.log(nickname);
+
+  const yes = () => {
     console.log(1);
     dispatch(__getNickname());
     dispatch(__getUsername());
     setOn(true);
-  }, []);
+  };
+
+  useEffect(() => {
+    yes();
+  }, [dispatch, username]);
 
   console.log(username);
   console.log(nickname);
@@ -82,12 +89,12 @@ const Upload = ({}) => {
           <U.ThinDiv>
             <U.ThinDiv2>
               <UploadBox title='작성자'>
-                {on && <Span2>{username}</Span2>}
-                {/* <Span2>{username}</Span2> */}
+                {/* {on && <Span2>{username}</Span2>} */}
+                <Span2>{username}</Span2>
               </UploadBox>
               <UploadBox title='닉네임'>
-                {on && <Span2>{nickname}</Span2>}
-                {/* <Span2>{nickname}</Span2> */}
+                {/* {on && <Span2>{nickname}</Span2>} */}
+                <Span2>{nickname}</Span2>
               </UploadBox>
               <UploadBox>
                 <BoxInput
