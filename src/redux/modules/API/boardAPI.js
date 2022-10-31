@@ -38,7 +38,7 @@ export const deleteBoardIdApi = async (id) => {
 };
 
 export const countHeartApi = async (payload) => {
-  console.log(payload);
+  console.log(typeof payload.id);
   const response = await axios.post(`${BASE_URL}/api/hearts/${payload.id}`, {
     headers: {
       Authorization: accessToken,
