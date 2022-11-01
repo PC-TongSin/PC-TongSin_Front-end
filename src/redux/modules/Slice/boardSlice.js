@@ -75,6 +75,8 @@ export const boardSlice = createSlice({
     boards: [],
     board: {},
     loved: [],
+    page: 1,
+    size: 10,
     isLoading: false,
     isBoardChanged: false,
     error: null,

@@ -5,7 +5,7 @@ export const BoardContainer = styled.table`
   margin-top: 6rem;
   width: 70rem;
   min-width: 40rem;
-  height: 60vh;
+  height: 30vh;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none; 

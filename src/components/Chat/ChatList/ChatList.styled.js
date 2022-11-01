@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
-export const ChatListContainer = styled.div`
+export const ChatListContainer = styled.table`
   margin: 0 auto;
   margin-top: 6rem;
   width: 70rem;
   min-width: 40rem;
-  height: 60vh;
+  height: 30vh;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none; 
