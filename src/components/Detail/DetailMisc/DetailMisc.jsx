@@ -12,23 +12,34 @@ export const DetailMisc = ({ totalHeartCount }) => {
   const dispatch = useDispatch();
 
   const username = localStorage.getItem("username");
+  console.log(username, "@@")
   const isBoardChanged = useSelector((state) => state.boards.isBoardChanged);
+
+  const [amILiked, setAmILiked] = useState(false)
+
+  const getLikedStatus = () => { heartList?.map((item) => {
+    if (item["username"] === username) {
+      return setAmILiked(true);
+    } else {
+      return setAmILiked(false);
+    }
+  })}
 
   useEffect(() => {
     dispatch(__getBoardId(id));
+    getLikedStatus(username);
     if (isBoardChanged) {
       dispatch(__getBoardId(id));
       dispatch(resetStatusBoard());
     }
-  }, [dispatch, id, isBoardChanged]);
+  }, [dispatch, id, isBoardChanged, username]);
 
   useEffect(() => {
     dispatch(__getUsername());
   }, [dispatch])
 
-  const heartList = useSelector((state) => state.boards.board.heartList);
-  const amILiked = heartList?.includes(username)
-  const [heart, setHeart] = useState(false)
+  const heartList = useSelector((state) => state?.boards?.board?.heartResDtoList);
+  console.log(amILiked);
 
   return (
     <DetailMiscContainer>
@@ -36,13 +47,13 @@ export const DetailMisc = ({ totalHeartCount }) => {
         amILiked ? 
           <Like onClick={() => {
             dispatch(__countHeart({id: +id}))
-            setHeart(!heart)
+            setAmILiked(!amILiked)
           }}
           >취소하기</Like> : 
           <Like
             onClick={() => {
               dispatch(__countHeart({id: +id}))
-              setHeart(!heart)
+              setAmILiked(!amILiked)
             }}
           >추천하기</Like>
       }
