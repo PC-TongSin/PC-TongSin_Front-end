@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const BoardContainer = styled.table`
+export const ChatListContainer = styled.div`
   margin: 0 auto;
   margin-top: 6rem;
   width: 70rem;
@@ -20,22 +20,23 @@ export const BoardContainer = styled.table`
     text-align: center;
   }
 `
-export const BoardItemSmall = styled.td`
-  width: 5rem;
+
+export const ChatItemSmall = styled.td`
+  width: 7rem;
   min-width: 4rem;
   height: 2rem;
   text-align: center;
 `
 
-export const BoardItemMedium = styled.td`
-  width: 10rem;
-  min-width: 7rem;
+export const ChatItemMedium = styled.td`
+  width: 12rem;
+  min-width: 8rem;
   max-height: 2rem;
   height: 2rem;
   text-align: center;
 `
 
-export const BoardItemLarge = styled.td`
+export const ChatItemLarge = styled.td`
   width: 40rem;
   min-width: 30rem;
   height: 2rem;

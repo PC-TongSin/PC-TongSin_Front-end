@@ -32,7 +32,7 @@ const Header = ({}) => {
         </H.HeaderButton>
         <H.HeaderButton
           onClick={() => {
-            navigate('/chat');
+            navigate('/chatList');
           }}
         >
           Chat

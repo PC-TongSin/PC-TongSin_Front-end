@@ -73,8 +73,6 @@ export const Detail = () => {
     setOnFix(false);
   };
 
-  // const amILiked = 내가 좋아요 누른 게시물인
-
   return (
     <DetailContainer>
       <DetailNotice>
@@ -118,7 +116,6 @@ export const Detail = () => {
           onFix ? (
             <DetailTextarea
               defaultValue={boardItem.content}
-              // value={textareaContent}
               onChange={handleTextareaChange}
             />
           ) : (

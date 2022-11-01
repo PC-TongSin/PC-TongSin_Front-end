@@ -1,22 +1,23 @@
-import { useNavigate } from 'react-router-dom';
-import { Board } from '../components/Board/Board';
-import Header from '../components/Header/Header';
-import styled from 'styled-components';
+import { ChatList } from "../components/Chat/ChatList/ChatList"
+import Header from "../components/Header/Header"
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-export const BoardPage = () => {
+export const ChatListPage = () => {
+
   const navigate = useNavigate();
+
   return (
-    <>
+    <div>
       <Header />
-      <UploadBtn
-        onClick={() => {
-          navigate('/upload');
-        }}
-      >글 작성
+      <UploadBtn onClick={() => {
+        navigate("/chat")
+      }}>
+        채팅방 개설
       </UploadBtn>
-      <Board />
-    </>
-  );
+      <ChatList/>
+    </div>
+  )
 };
 
 const UploadBtn = styled.button`
