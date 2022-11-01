@@ -24,7 +24,16 @@ export const DetailTitle = styled.h1`
   padding-bottom: 3rem;
 `;
 
-export const DetailTextarea = styled.textarea``;
+export const DetailTextarea = styled.textarea`
+  display: flex;
+  background-color: transparent;
+  width: 30rem;
+  height: 20rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: ${(props) => props.theme.WHITE};
+  font-family: 'Neo둥근모 Code';
+`;
 
 export const DetailInfo = styled.div`
   display: flex;

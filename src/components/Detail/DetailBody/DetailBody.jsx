@@ -18,10 +18,13 @@ import {
 } from '../../../redux/modules/Slice/boardSlice';
 import { __getUsername } from '../../../redux/modules/Slice/userSlice';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Detail = () => {
+
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [onFix, setOnFix] = useState(false);
 
@@ -36,14 +39,13 @@ export const Detail = () => {
   }, [dispatch]);
 
   const boardItem = useSelector((state) => state.boards?.board);
-  console.log(boardItem)
-  
   const username = useSelector((state) => state.users?.username, shallowEqual);
   localStorage.getItem('username', username);
 
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(__deleteBoardId(id));
+    navigate("/board")
   };
   const handleCancel = (e) => {
     e.preventDefault();
@@ -61,8 +63,7 @@ export const Detail = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
+    // e.preventDefault();
     dispatch(
       __fixBoardId({
         id: id,
@@ -71,6 +72,8 @@ export const Detail = () => {
     );
     setOnFix(false);
   };
+
+  // const amILiked = 내가 좋아요 누른 게시물인
 
   return (
     <DetailContainer>
@@ -93,16 +96,20 @@ export const Detail = () => {
         {
           username === boardItem.author ? (
             <>
-              {onFix ? (
-                <DetailBtn>확인</DetailBtn>
-              ) : (
-                <DetailBtn onClick={handleDelete}>게시글 삭제</DetailBtn>
-              )}
-              {onFix ? (
-                <DetailBtn onClick={handleCancel}>취소</DetailBtn>
-              ) : (
-                <DetailBtn onClick={handleFix}>게시글 수정</DetailBtn>
-              )}
+              {
+                onFix ? (
+                  <DetailBtn>확인</DetailBtn>
+                ) : (
+                  <DetailBtn onClick={handleDelete}>게시글 삭제</DetailBtn>
+                )
+              }
+              {
+                onFix ? (
+                  <DetailBtn onClick={handleCancel}>취소</DetailBtn>
+                ) : (
+                  <DetailBtn onClick={handleFix}>게시글 수정</DetailBtn>
+                )
+              }
             </>
           ) : null
         }
@@ -110,7 +117,8 @@ export const Detail = () => {
         {
           onFix ? (
             <DetailTextarea
-              value={textareaContent}
+              defaultValue={boardItem.content}
+              // value={textareaContent}
               onChange={handleTextareaChange}
             />
           ) : (

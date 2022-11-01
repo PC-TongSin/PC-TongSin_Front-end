@@ -41,7 +41,7 @@ export const Board = () => {
               <BoardItemSmall>{item.author}</BoardItemSmall>
               <BoardItemSmall>{item.nickname}</BoardItemSmall>
               <BoardItemMedium>{item.createdAt.substr(0, 10)}</BoardItemMedium>
-              <BoardItemSmall>{item.hit}</BoardItemSmall>
+              <BoardItemSmall>{Math.round(item.hit/3)}</BoardItemSmall>
               <BoardItemSmall>{item.totalCommentCount}</BoardItemSmall>
               <BoardItemSmall>{item.totalHeartCount}</BoardItemSmall>
               <BoardItemLarge

@@ -6,7 +6,7 @@ import {
   StInput,
   StEditInput,
 } from './CommentList.styled';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { __getBoardId } from '../../../redux/modules/Slice/boardSlice';
 import { useParams } from 'react-router-dom';
@@ -24,10 +24,7 @@ export const CommentList = () => {
   const dispatch = useDispatch();
 
   const commentList = useSelector((state) => state.boards?.board?.commentResDtoList);
-  const isCommentChanged = useSelector((state) => state.comment.isCommentChanged);
-  const username = useSelector((state) => state.users?.username, shallowEqual);
-  console.log(username);
-  
+  const isCommentChanged = useSelector((state) => state.comment.isCommentChanged); 
   const [isEdit, setIsEdit] = useState(false);
   const [content, setContent] = useState('');
 
@@ -47,7 +44,7 @@ export const CommentList = () => {
   return (
     <div>
       {
-        commentList?.map((item) => {
+        !!commentList && commentList?.map((item) => {
           return (
             <Comments key={ item.comment_id }>
               <StComment>{ item.author }</StComment>
@@ -55,6 +52,7 @@ export const CommentList = () => {
                 {isEdit ? (
                   <StEditInput
                     defaultValue={ item.content }
+                    spellcheck={ false }
                     onChange={ commentChangeHandler }
                   />
                 ) : (
@@ -66,8 +64,8 @@ export const CommentList = () => {
               {isEdit ? (
                 <StCommentDelBtn
                   onClick={() => {
-                    setIsEdit(!isEdit);
                     dispatch(__editComment({ id: item.comment_id, content }));
+                    setIsEdit(!isEdit);
                   }}
                 >완료
                 </StCommentDelBtn>

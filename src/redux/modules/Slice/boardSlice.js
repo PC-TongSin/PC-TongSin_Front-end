@@ -60,10 +60,8 @@ export const __deleteBoardId = createAsyncThunk(
 export const __countHeart = createAsyncThunk(
   "countHeart",
   async (payload, thunkAPI) => {
-    console.log(payload);
     try {
       const response = await countHeartApi(payload);
-      console.log(response);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -76,6 +74,7 @@ export const boardSlice = createSlice({
   initialState: {
     boards: [],
     board: {},
+    loved: [],
     isLoading: false,
     isBoardChanged: false,
     error: null,
@@ -142,6 +141,10 @@ export const boardSlice = createSlice({
     
     [__countHeart.pending]: (state) => {
       state.isLoading = true;
+    },
+    [__countHeart.fulfilled]: (state, action) => {
+      state.isBoardChanged = true;
+      state.loved.concat(action.payload);
     },
     [__countHeart.rejected]: (state, action) => {
       state.isLoading = false;
