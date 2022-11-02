@@ -1,10 +1,9 @@
-import sockJS from "sockjs-client";
-import { Stomp } from "@stomp/stompjs";
+import sockJS from 'sockjs-client';
+import { Stomp } from '@stomp/stompjs';
 
 class ChattingService {
-  
-  socket = new sockJS('http://118.40.172.207:8080/gs-guide-websocket');
-  stompClient = Stomp.over(this.socket)
+  socket = new sockJS(`${process.env.REACT_APP_SERVER}/gs-guide-websocket`);
+  stompClient = Stomp.over(this.socket);
   roomId = '';
 
   // 방 id 받기
@@ -36,7 +35,7 @@ class ChattingService {
 
   //
 
-  sendMessage = (messageObject, headers={}) => {
+  sendMessage = (messageObject, headers = {}) => {
     this.stompClient.send('/app/hello', {}, JSON.stringify(messageObject));
     // this.stompClient.send('/app/hello', {}, messageObject);
   };
