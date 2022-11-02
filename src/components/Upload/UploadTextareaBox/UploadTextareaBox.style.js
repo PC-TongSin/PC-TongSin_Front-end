@@ -24,12 +24,11 @@ export const Textarea = styled.textarea`
   flex: 2.5;
   line-height: 1.6rem;
   outline: none;
-  color: ${(props) => props.theme.WHITE};
+  color: ${(props) => props.theme.BLACK};
   font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
   font-size: 1.2rem;
-  background-color: transparent;
-  border: none;
-  resize: none;
+  background: transparent;
+  /* border: none; */
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
 
   min-height: 10rem;

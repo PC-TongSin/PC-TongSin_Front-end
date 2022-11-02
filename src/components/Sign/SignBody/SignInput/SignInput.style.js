@@ -85,7 +85,7 @@ export const RepeatCheck = styled.span`
 
   color: ${(props) => {
     if (props.textColorToggle) {
-      return props.theme.WHITE;
+      return props.theme.RED;
     } else {
       return props.theme.RED;
     }
@@ -98,3 +98,7 @@ export const RepeatCheck = styled.span`
     }
   }};
 `;
+
+export const FakeCheckButtonSpan = styled.span`
+  color: black;
+`

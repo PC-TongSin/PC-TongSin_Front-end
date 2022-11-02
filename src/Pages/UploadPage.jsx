@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header/Header';
 import Upload from '../components/Upload/Upload';
 
-const UploadPage = ({}) => {
+const UploadPage = () => {
   return (
     <>
       <Header />
@@ -17,5 +17,7 @@ export default UploadPage;
 
 const Layout = styled.div`
   width: 100%;
-  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 `;

@@ -8,13 +8,13 @@ export const GlobalStyle = createGlobalStyle`
   body {
     animation: blue-me 5ms infinite;
   }
-  @keyframes blue-me {
+  /* @keyframes blue-me {
     28%{ background: #171DA8; }
     30% { background: rgba(#171DA8,0.95);}
     33%{ background: #171DA8; }
     34% { background: rgba(#171DA8,0.9);}
     35%{ background: #171DA8; }
-  }
+  } */
 
   button {
     outline: 0;

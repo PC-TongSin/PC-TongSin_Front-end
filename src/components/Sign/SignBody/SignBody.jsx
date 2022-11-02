@@ -82,7 +82,7 @@ const SignBody = () => {
             input={input}
             onChangeHandler={onChangeHandler}
             alertMessage='아이디가 이상합니다! 아이디는 최소 4자 이상, 12자 이하 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 구성됩니다.'
-            repeatCheckUrl='/api/auth/checkid'
+            repeatCheckUrl='/api/auth/check-id'
           />
           <GuideMsg>아이디는 4 ~ 12자, 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 작성해주세요^0^</GuideMsg>
           <SignInput
@@ -92,7 +92,7 @@ const SignBody = () => {
             name='nickname'
             input={input}
             onChangeHandler={onChangeHandler}
-            repeatCheckUrl='/api/auth/checknickname'
+            repeatCheckUrl='/api/auth/check-nickname'
           />
           <GuideMsg/>
           <SignInput

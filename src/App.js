@@ -30,8 +30,8 @@ function App() {
         <Router />
         {
           myTheme === "light" ? (
-            <LightThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></LightThemeBtn>
-          ) : <DarkThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></DarkThemeBtn>
+            <LightThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"fontSize": "2rem"}}/></LightThemeBtn>
+          ) : <DarkThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"fontSize": "2rem"}}/></DarkThemeBtn>
         }
       </div>
     </ThemeProvider>

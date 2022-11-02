@@ -24,26 +24,28 @@ const SignInput = ({
         setTextColorToggle(false);
         setAlertMsg(alertMessage);
       } else {
-        const response = await axios.post(
-          `${process.env.REACT_APP_SERVER}${repeatCheckUrl}`,
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER}${repeatCheckUrl}?username=${input.username}`,
           {
             [name]: input[name],
           }
         );
 
         if (!response.data.success) {
+          console.log(response.data)
           setAlertToggle(true);
           setTextColorToggle(false);
-          setAlertMsg(response.data.error.msg);
+          setAlertMsg(response.data.data);
         } else {
+          console.log(response)
           setAlertToggle(true);
           setTextColorToggle(true);
           setAlertMsg(response.data.data);
         }
       }
     } else if (name === 'nickname') {
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER}${repeatCheckUrl}`,
+      const response = await axios.get(
+        `${process.env.REACT_APP_SERVER}${repeatCheckUrl}?nickname=${input.nickname}`,
         {
           [name]: input[name],
         }
@@ -52,7 +54,7 @@ const SignInput = ({
       if (!response.data.success) {
         setAlertToggle(true);
         setTextColorToggle(false);
-        setAlertMsg(response.data.error.msg);
+        // setAlertMsg(response.data.error.msg);
       } else {
         setAlertToggle(true);
         setTextColorToggle(true);
@@ -88,7 +90,6 @@ const SignInput = ({
             </I.CheckButton>
           ) : (
             <I.FakeCheckButton>
-              {/* <I.FakeCheckButtonSpan>Checked</I.FakeCheckButtonSpan> */}
             </I.FakeCheckButton>
           )}
         </I.Div>
