@@ -4,9 +4,6 @@ import {
   StDownLoading,
   StChatInput,
   StChatBoxContainer,
-  StChatBox,
-  ChatTime,
-  ChatMsg,
 } from './ChatRoom.styled';
 import { useEffect, useState } from 'react';
 import { ChattingServiceKit } from '../../../SockJS/SockInstance';
@@ -70,7 +67,6 @@ export const ChatRoom = () => {
           value={message}
           onChange={inputMessage}
         />
-        <button>전송하기</button>
       </form>
     </ChatContainer>
   );

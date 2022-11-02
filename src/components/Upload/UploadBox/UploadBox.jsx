@@ -11,9 +11,6 @@ const UploadBox = ({ title = '제목', children }) => {
               {title} {`>`}
             </B.Span>
           </B.SmallDiv>
-
-          {/* <B.Input /> */}
-
           {children}
         </B.Div>
       </B.BigDiv>

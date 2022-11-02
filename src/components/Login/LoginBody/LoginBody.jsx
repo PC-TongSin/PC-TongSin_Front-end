@@ -10,7 +10,7 @@ import {
   __getUsername,
 } from '../../../redux/modules/Slice/userSlice';
 
-const LoginBody = ({}) => {
+const LoginBody = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

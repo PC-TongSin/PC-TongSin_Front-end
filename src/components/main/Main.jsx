@@ -37,12 +37,10 @@ export const Main = () => {
         {theme === 'light' ? (
           <>
             <img src='https://ifh.cc/g/vt2KF2.png' alt='blueBold' />
-            {/* <img src="https://ifh.cc/g/SCSRsX.png" alt="blue" /> */}
           </>
         ) : (
           <>
             <img src='https://ifh.cc/g/ZCrX0r.png' alt='blackBold' />
-            {/* <img src="https://ifh.cc/g/ZDkG9K.png" alt="black2"/> */}
           </>
         )}
 
@@ -60,6 +58,13 @@ export const Main = () => {
       </MainAccessMsg>
       <hr />
       <MainInfo>로그인 하려면 Enter를 눌러주세요.</MainInfo>
+      <ScreenFlashLine>
+        <ScreenLine>
+          <div className='red' />
+          <div className='white' />
+          <div className='green' />
+        </ScreenLine>
+      </ScreenFlashLine>
       <LoginInput onKeyPress={onKeyPress} ref={inputFocus} />
       <LoginBtn onClick={onClick} />
     </MainContainer>
@@ -75,4 +80,59 @@ export const LoginInput = styled.input`
   outline: none;
   border: none;
 `;
-// enter 누르면 페이지 이동 시키고 싶은데, input에 event 주는 법 말구, 아무 상태에서나 눌러도 가능한 방법은???
+
+export const ScreenFlashLine = styled.div`
+  position: fixed;
+	bottom: 0;
+	width: 100%;
+`
+
+export const ScreenLine = styled.div`
+	width: 100%;
+	height: 3px;
+	position: relative;
+	animation: 	appear 1s infinite, 
+              flick 1s infinite,
+              big-jump 5ms infinite;
+  .white{
+		background: white;
+		position: relative;
+		top:0;
+		left: 0;
+		height: 4px;
+	}
+	.red{
+		background: red;
+		position: relative;
+		top:0;
+		left: 0;
+		height: 1px;
+	}
+	.green{
+		background: green;
+		position: relative;
+		top:0;
+		left: 0;
+		height: 1px;
+	}
+  @keyframes appear {
+    0%   { filter: blur(5px); opacity: 0.85;}
+    50% { filter: blur(3px); opacity: 0.85;}
+    100%{ filter: blur(4px); opacity: 0.85;}
+  }
+  @keyframes big-jump {
+      0% { top:0; }
+      10% { top: -100px; }
+      12% { top:0; }
+      54% { top:0; }
+      55% { top: -300px; }
+      56% { top:0; }
+      86% { top:0; }
+      87% { top: -600px; }
+      88% { top:0; }
+    }
+    @keyframes flick {
+      50% { left:2px; }
+      51% { left:0; }
+    }
+`

@@ -28,7 +28,11 @@ function App() {
       <GlobalStyle />
       <div className='App'>
         <Router />
-        <ThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></ThemeBtn>
+        {
+          myTheme === "light" ? (
+            <LightThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></LightThemeBtn>
+          ) : <DarkThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></DarkThemeBtn>
+        }
       </div>
     </ThemeProvider>
   );
@@ -36,7 +40,7 @@ function App() {
 
 export default App;
 
-const ThemeBtn = styled.button`
+const LightThemeBtn = styled.button`
   position: absolute;
   bottom: 30px;
   right: 30px;
@@ -62,6 +66,36 @@ const ThemeBtn = styled.button`
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
   background: black;
+  color: #fff
+  }
+`
+
+const DarkThemeBtn = styled.button`
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 1rem;
+  background: ${(props) => props.theme.GREY};
+  color: ${(props) => props.theme.BLACK};
+  padding: 1rem;
+  text-align: center;
+  width: 75px;
+  height: 75px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+  &:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  background: #020080;
   color: #fff
   }
 `
