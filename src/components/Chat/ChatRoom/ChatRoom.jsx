@@ -52,6 +52,11 @@ export const ChatRoom = () => {
     setMessage('');
   };
 
+  useEffect(() => {
+    return () => {
+      ChattingServiceKit.onDisconnect();
+    };
+  }, []);
   // console.log(chatLog);
   // console.log(message);
 
