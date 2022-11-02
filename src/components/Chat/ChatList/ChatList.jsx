@@ -1,4 +1,5 @@
-import { ChatListContainer, ChatItemSmall, ChatItemMedium, ChatItemLarge } from "./\bChatList.styled";
+import { ChatListContainer, ChatItemSmall, ChatItemMedium, ChatItemLarge } from "./ChatList.styled"
+
 
 export const ChatList = () => {
   return (

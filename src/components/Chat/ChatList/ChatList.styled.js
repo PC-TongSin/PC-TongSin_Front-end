@@ -9,7 +9,7 @@ export const ChatListContainer = styled.table`
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none; 
-  border: 1px solid #fff;
+  border: 1px solid ${(props) => props.theme.WHITE};
   &::-webkit-scrollbar {
     display: none;
   }
