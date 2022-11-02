@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Section = styled.section`
   /* height: 10rem; */
   width: 100%;
-  height: 23rem;
+  height: 26rem;
   margin: 0 auto;
   max-width: 60rem;
   min-width: 50rem;

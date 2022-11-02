@@ -13,6 +13,7 @@ export const StChatInput = styled.input`
   padding: 1rem;
   position: fixed;
   bottom: 5px;
+  border: ${(props) => props.theme.WHITE};
   background: transparent;
   outline: none;
   font-size: 1rem;

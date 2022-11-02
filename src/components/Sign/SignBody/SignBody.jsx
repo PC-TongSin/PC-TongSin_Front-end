@@ -4,8 +4,9 @@ import SignInput from './SignInput/SignInput';
 import { __postUser } from '../../../redux/modules/Slice/userSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { is_password, is_username } from '../../../common/logics';
+import styled from 'styled-components';
 
 const SignBody = () => {
   const dispatch = useDispatch();
@@ -72,6 +73,7 @@ const SignBody = () => {
         </B.Header>
 
         <form onSubmit={onSubmitHandlers}>
+          <hr/>
           <SignInput
             id='아이디'
             repeteCheck={true}
@@ -82,6 +84,7 @@ const SignBody = () => {
             alertMessage='아이디가 이상합니다! 아이디는 최소 4자 이상, 12자 이하 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 구성됩니다.'
             repeatCheckUrl='/api/auth/checkid'
           />
+          <GuideMsg>아이디는 4 ~ 12자, 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 작성해주세요^0^</GuideMsg>
           <SignInput
             id='닉네임'
             repeteCheck={true}
@@ -91,6 +94,7 @@ const SignBody = () => {
             onChangeHandler={onChangeHandler}
             repeatCheckUrl='/api/auth/checknickname'
           />
+          <GuideMsg/>
           <SignInput
             id='비밀번호'
             repeteCheck={false}
@@ -99,6 +103,7 @@ const SignBody = () => {
             input={input}
             onChangeHandler={onChangeHandler}
           />
+          <GuideMsg>비밀번호는 8 ~ 20자, 알파벳 대소문자, 숫자(0-9), 특수문자로 작성해주세요.^0^</GuideMsg>
           <SignInput
             id='비밀번호확인'
             repeteCheck={false}
@@ -107,6 +112,8 @@ const SignBody = () => {
             input={input}
             onChangeHandler={onChangeHandler}
           />
+          <GuideMsg/>
+          <hr/>
           <B.Button>회원가입</B.Button>
         </form>
       </B.Section>
@@ -115,3 +122,11 @@ const SignBody = () => {
 };
 
 export default SignBody;
+
+export const GuideMsg = styled.p`
+  color: tomato;
+  margin: 0;
+  padding: 0;
+  margin-left: 15rem;
+  font-size: 0.7rem;
+`

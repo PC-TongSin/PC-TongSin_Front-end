@@ -4,6 +4,9 @@ import { LightTheme, DarkTheme } from './theme/Theme';
 import { GlobalStyle } from './theme/GlobalStyle';
 import { useState } from 'react';
 import Router from './Shared/Router';
+import styled from 'styled-components';
+import { BsFillMoonFill } from "react-icons/bs";
+
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -24,11 +27,41 @@ function App() {
     <ThemeProvider theme={myTheme === 'light' ? LightTheme : DarkTheme}>
       <GlobalStyle />
       <div className='App'>
-        <button onClick={toggleTheme}>눌러봐</button>
         <Router />
+        <ThemeBtn onClick={toggleTheme}><BsFillMoonFill style={{"font-size": "2rem"}}/></ThemeBtn>
       </div>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+const ThemeBtn = styled.button`
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 1rem;
+  background: ${(props) => props.theme.GREY};
+  color: ${(props) => props.theme.BLACK};
+  padding: 1rem;
+  text-align: center;
+  width: 75px;
+  height: 75px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+  &:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  background: black;
+  color: #fff
+  }
+`

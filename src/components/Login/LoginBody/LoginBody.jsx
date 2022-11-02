@@ -65,6 +65,7 @@ const LoginBody = ({}) => {
             onClick={() => navigate("/")}
           >X</L.Button>
         </L.Header>
+        <hr/>
         <form onSubmit={handleSubmit}>
           <LoginInput
             id='아이디'
@@ -91,9 +92,11 @@ const LoginBody = ({}) => {
             >
               회원가입
             </L.Button>
+            <hr/>
             <L.Button type='submit'>로그인</L.Button>
           </L.ButtonDiv>
         </form>
+        <hr/>
       </L.Section>
     </>
   );

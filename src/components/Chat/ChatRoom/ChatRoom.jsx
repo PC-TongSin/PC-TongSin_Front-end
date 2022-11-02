@@ -13,10 +13,7 @@ import { ChattingServiceKit } from '../../../SockJS/SockInstance';
 
 export const ChatRoom = () => {
   const accessToken = localStorage.getItem('accessToken');
-  // console.log(accessToken);
-
   const [chatLog, setChatLog] = useState([]);
-
   const [receiveMsg, setReceiveMsg] = useState();
 
   // Message User & Content
@@ -28,14 +25,11 @@ export const ChatRoom = () => {
 
   const onEnter = (e) => {
     if (e.keyCode === 13) {
-      // sendMessage();
       console.log('----- 메시지 전송 성공! -----');
     }
   };
 
   ChattingServiceKit.onConnect('/topic/greetings', {}, (newMessage) => {
-    // setMessage(newMessage.content);
-
     setReceiveMsg(newMessage.content);
   });
 
@@ -52,17 +46,14 @@ export const ChatRoom = () => {
     setMessage('');
   };
 
-  // console.log(chatLog);
-  // console.log(message);
-
   return (
     <ChatContainer>
       <StChatBoxContainer>
-        {chatLog !== 0 &&
-          chatLog.map((val, index) => {
-            return <h3 key={index}>{val}</h3>;
-          })}
-
+        {
+          chatLog !== 0 && chatLog.map((val, index) => {
+            return <h4 key={index}>{val}</h4>;
+          })
+        }
         {message.length > 0 ? (
           <StUpLoading>메시지 발신 중...</StUpLoading>
         ) : (
