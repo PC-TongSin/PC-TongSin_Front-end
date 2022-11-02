@@ -15,27 +15,19 @@ import UploadTextareaBox from './UploadTextareaBox/UploadTextareaBox';
 import UploadTextBox from './UploadTextBox/UploadTextBox';
 
 const Upload = ({}) => {
+  const accessToken = localStorage.getItem('accessToken');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { username, nickname } = useSelector((state) => state.users);
-  const [on, setOn] = useState(false);
-
-  console.log(username);
-  console.log(nickname);
 
   const yes = () => {
-    console.log(1);
-    dispatch(__getNickname());
-    dispatch(__getUsername());
-    setOn(true);
+    dispatch(__getNickname(accessToken));
+    dispatch(__getUsername(accessToken));
   };
 
   useEffect(() => {
     yes();
   }, [dispatch, username]);
-
-  console.log(username);
-  console.log(nickname);
 
   const [input, setInput] = useState({
     title: '',

@@ -57,8 +57,6 @@ export const ChatRoom = () => {
       ChattingServiceKit.onDisconnect();
     };
   }, []);
-  // console.log(chatLog);
-  // console.log(message);
 
   return (
     <ChatContainer>
