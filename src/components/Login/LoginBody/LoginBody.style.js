@@ -25,7 +25,7 @@ export const Header = styled.div`
   margin-right: 2px;
   line-height: 35px;
   font-weight: bold;
-  color: ${(props) => props.theme.BALCK};
+  color: ${(props) => props.theme.WHITE};
   padding: 0px 1rem;
   padding-right: 0;
   background: linear-gradient(to right, rgb(0, 0, 128), rgb(16, 52, 166));

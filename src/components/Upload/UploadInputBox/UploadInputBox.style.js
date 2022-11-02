@@ -28,6 +28,6 @@ export const Input = styled.input`
   font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
   font-size: 1.2rem;
   background: transparent;
-  border: none;
+  /* border: none; */
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
 `;

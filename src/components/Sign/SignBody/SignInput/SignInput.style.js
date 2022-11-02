@@ -29,28 +29,38 @@ export const Input = styled.input`
   font-family: 'Neo둥근모 Code', 'Neo둥근모Code', 'neodgm-code';
   font-size: 1.2rem;
   background: transparent;
-  border: none;
+  /* border: none; */
   border-bottom: 2px solid ${(props) => props.theme.WHITE};
 `;
 
 export const CheckButton = styled.button`
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex: 1;
   font-family: 'Neo둥근모 Code';
-  background-color: ${(props) => props.theme.GREY};
-  padding: 0;
-  min-width: 4rem;
-  height: 2.4rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: rgb(206, 208, 207);
+  color: rgb(5, 6, 8);
+  position: relative;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-left-color: rgb(255, 255, 255);
+  border-top-color: rgb(255, 255, 255);
+  border-right-color: rgb(5, 6, 8);
+  border-bottom-color: rgb(5, 6, 8);
+  box-shadow: rgb(223, 224, 227) 1px 1px 0px 1px inset, rgb(136, 140, 143) -1px -1px 0px 1px inset;
+  height: 35px;
+  width: 70%;
+  border-style: solid;
+  border-width: 2px;
 `;
 export const FakeCheckButton = styled.div`
   flex: 1;
   background-color: ${(props) => props.theme.GREY};
 `;
-// export const FakeCheckButtonSpan = styled.span`
-//   font-size: 2rem;
-
-//   background-color: ${(props) => props.theme.GREY};
-// `;
 
 export const InputDiv = styled.div`
   display: flex;
