@@ -31,7 +31,7 @@ export const loginSlice = createSlice({
       state.loginInfo.push(action.payload);
       state.isLogin = true
     },
-    [__loginUser.rejected]: (state, action) => {
+    [__loginUser.rejected]: (_, action) => {
       console.log(action.payload);
     },
   },
