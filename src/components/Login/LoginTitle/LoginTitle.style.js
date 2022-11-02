@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  height: 16rem;
   width: 100%;
+  height: 15rem;
+  margin: 0 auto;
+  max-width: 60rem;
   min-width: 50rem;
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;

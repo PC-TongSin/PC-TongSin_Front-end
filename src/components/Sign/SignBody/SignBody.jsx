@@ -1,16 +1,14 @@
 import React from 'react';
 import * as B from './SignBody.style';
 import SignInput from './SignInput/SignInput';
-
 import { __postUser } from '../../../redux/modules/Slice/userSlice';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { is_password, is_username } from '../../../common/logics';
 
-const SignBody = ({}) => {
+const SignBody = () => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   const init = {
@@ -52,9 +50,7 @@ const SignBody = ({}) => {
         const response = await dispatch(__postUser(input));
 
         if (response.meta.requestStatus === 'fulfilled') {
-          // console.log('회원가입 성공');
           window.confirm(`회원가입 성공`);
-          // navigate(`/`);
         } else {
           window.confirm(`${response.payload.response.data.errorMessage}`);
         }
@@ -67,6 +63,14 @@ const SignBody = ({}) => {
   return (
     <>
       <B.Section>
+        <B.Header>
+          <B.HeaderText>회원가입</B.HeaderText>
+          <B.Button 
+            className='is-sqaure'
+            onClick={() => navigate("/login")}
+          >X</B.Button>
+        </B.Header>
+
         <form onSubmit={onSubmitHandlers}>
           <SignInput
             id='아이디'
@@ -105,7 +109,6 @@ const SignBody = ({}) => {
           />
           <B.Button>회원가입</B.Button>
         </form>
-        <Link to='/login'>로그인하기</Link>
       </B.Section>
     </>
   );

@@ -58,6 +58,13 @@ const LoginBody = ({}) => {
   return (
     <>
       <L.Section>
+        <L.Header>
+        <L.HeaderText>로그인</L.HeaderText>
+          <L.Button 
+            className='is-sqaure'
+            onClick={() => navigate("/")}
+          >X</L.Button>
+        </L.Header>
         <form onSubmit={handleSubmit}>
           <LoginInput
             id='아이디'
@@ -83,10 +90,8 @@ const LoginBody = ({}) => {
               }}
             >
               회원가입
-              <br />
-              하러가기
             </L.Button>
-            <L.Button type='submit'>로그인 하기</L.Button>
+            <L.Button type='submit'>로그인</L.Button>
           </L.ButtonDiv>
         </form>
       </L.Section>

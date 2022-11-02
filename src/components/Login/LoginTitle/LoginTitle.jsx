@@ -5,7 +5,7 @@ const LoginTitle = ({}) => {
   return (
     <>
       <L.Section>
-        <L.H1>로그인</L.H1>
+        <L.H1>콤-퓨타 통신</L.H1>
       </L.Section>
     </>
   );

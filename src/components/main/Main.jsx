@@ -14,7 +14,7 @@ export const Main = () => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate('/board');
+    navigate('/login');
   };
 
   const onKeyPress = (e) => {

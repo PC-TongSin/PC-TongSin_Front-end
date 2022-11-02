@@ -19,5 +19,7 @@ export default SignPage;
 
 const Layout = styled.div`
   width: 100%;
-  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 `;
