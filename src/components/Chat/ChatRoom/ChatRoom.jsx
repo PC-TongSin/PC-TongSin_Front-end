@@ -12,11 +12,9 @@ import { useEffect, useState } from 'react';
 import { ChattingServiceKit } from '../../../SockJS/SockInstance';
 
 export const ChatRoom = () => {
-
+s
   const [chatLog, setChatLog] = useState([]);
   const accessToken = localStorage.getItem("accessToken");
-
-  const [chatLog, setChatLog] = useState([]);
 
   const [receiveMsg, setReceiveMsg] = useState();
 
