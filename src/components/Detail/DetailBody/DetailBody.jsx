@@ -16,7 +16,6 @@ import {
   __fixBoardId,
   __getBoardId,
 } from '../../../redux/modules/Slice/boardSlice';
-import { __getUsername } from '../../../redux/modules/Slice/userSlice';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,13 +34,7 @@ export const Detail = () => {
     dispatch(__getBoardId(id));
   }, [dispatch, id]);
 
-  useEffect(() => {
-    dispatch(__getUsername(token));
-  }, [dispatch]);
-
   const boardItem = useSelector((state) => state.boards?.board);
-  // const username = useSelector((state) => state.users?.username, shallowEqual);
-  // const username = useSelector((state) => state.users?.username);
 
   const handleDelete = (e) => {
     e.preventDefault();

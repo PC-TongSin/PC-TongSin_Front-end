@@ -39,10 +39,6 @@ export const DetailMisc = ({ totalHeartCount }) => {
     }
   }, [dispatch, id, isBoardChanged, username]);
 
-  useEffect(() => {
-    dispatch(__getUsername());
-  }, [dispatch]);
-
   const heartList = useSelector(
     (state) => state?.boards?.board?.heartResDtoList
   );
