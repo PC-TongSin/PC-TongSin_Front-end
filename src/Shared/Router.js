@@ -6,7 +6,6 @@ import { DetailPage } from '../Pages/DetailPage';
 import UploadPage from '../Pages/UploadPage';
 import LoginPage from '../Pages/LoginPage';
 import ChatPage from '../Pages/ChatPage';
-import { ChatListPage } from '../Pages/ChatListPage';
 
 const Router = () => {
   return (
@@ -18,7 +17,6 @@ const Router = () => {
         <Route path='/api/boards/:id' element={<DetailPage />} />
         <Route path='/upload' element={<UploadPage />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/chatList' element={<ChatListPage />} />
         <Route path='/chat' element={<ChatPage />} />
       </Routes>
     </BrowserRouter>
