@@ -57,7 +57,7 @@ const SignBody = () => {
         }
       }
 
-      navigate('/board');
+      navigate('/login');
     } else {
       window.confirm('비밀번호가 서로 다릅니다!');
     }
