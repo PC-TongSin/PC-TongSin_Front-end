@@ -47,7 +47,7 @@ const LoginBody = ({}) => {
           window.confirm(`로그인 성공!`);
           dispatch(__getNickname(token));
           dispatch(__getUsername(token));
-          navigate(`/board`);
+          navigate(`/login`);
         } else {
           window.confirm(`${response.payload.response.data.errorMessage}`);
         }

@@ -42,21 +42,23 @@ const SignInput = ({
         }
       }
     } else if (name === 'nickname') {
-      const response = await axios.get(
-        `${process.env.REACT_APP_SERVER}${repeatCheckUrl}?nickname=${input.nickname}`,
-        {
-          [name]: input[name],
-        }
-      );
+      if (input[name]) {
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER}${repeatCheckUrl}?nickname=${input.nickname}`,
+          {
+            [name]: input[name],
+          }
+        );
 
-      if (!response.data.success) {
-        setAlertToggle(true);
-        setTextColorToggle(false);
-        // setAlertMsg(response.data.error.msg);
-      } else {
-        setAlertToggle(true);
-        setTextColorToggle(true);
-        setAlertMsg(response.data.data);
+        if (response.request.status !== 200) {
+          setAlertToggle(true);
+          setTextColorToggle(false);
+          setAlertMsg(response.data.error.msg);
+        } else {
+          setAlertToggle(true);
+          setTextColorToggle(true);
+          setAlertMsg(response.data.data);
+        }
       }
     }
   };
@@ -82,7 +84,8 @@ const SignInput = ({
 
           {repeteCheck ? (
             <I.CheckButton onClick={handleRepeat}>
-              {textColorToggle ? 'checked\n(다시 체크하기)' : '중복체크'}
+              중복체크
+              {/* {textColorToggle ? 'checked\n(다시 체크하기)' : '중복체크'} */}
             </I.CheckButton>
           ) : (
             <I.FakeCheckButton></I.FakeCheckButton>
