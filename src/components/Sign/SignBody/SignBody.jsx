@@ -55,6 +55,8 @@ const SignBody = () => {
           window.confirm(`${response.payload.response.data.errorMessage}`);
         }
       }
+
+      navigate('/board');
     } else {
       window.confirm('비밀번호가 서로 다릅니다!');
     }
@@ -65,10 +67,9 @@ const SignBody = () => {
       <B.Section>
         <B.Header>
           <B.HeaderText>회원가입</B.HeaderText>
-          <B.Button 
-            className='is-sqaure'
-            onClick={() => navigate("/login")}
-          >X</B.Button>
+          <B.Button className='is-sqaure' onClick={() => navigate('/login')}>
+            X
+          </B.Button>
         </B.Header>
 
         <form onSubmit={onSubmitHandlers}>

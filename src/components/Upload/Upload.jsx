@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { __getBoardId } from '../../redux/modules/Slice/boardSlice';
 import {
@@ -15,14 +15,14 @@ import UploadTextareaBox from './UploadTextareaBox/UploadTextareaBox';
 import UploadTextBox from './UploadTextBox/UploadTextBox';
 
 const Upload = ({}) => {
-  const accessToken = localStorage.getItem('accessToken');
+  const token = localStorage.getItem('accessToken');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { username, nickname } = useSelector((state) => state.users);
 
   const yes = () => {
-    dispatch(__getNickname(accessToken));
-    dispatch(__getUsername(accessToken));
+    dispatch(__getNickname(token));
+    dispatch(__getUsername(token));
   };
 
   useEffect(() => {
@@ -69,6 +69,11 @@ const Upload = ({}) => {
       content: '',
     });
   };
+
+  if (!token) {
+    window.confirm('로그인이 필요합니다');
+    return <Navigate to='/board' replace={true} />;
+  }
 
   return (
     <>

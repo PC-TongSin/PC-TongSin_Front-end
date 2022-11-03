@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import LoginInput from '../LoginInput/LoginInput';
 import * as L from './LoginBody.style';
 import { __loginUser } from '../../../redux/modules/Slice/loginSlice';
@@ -11,6 +11,8 @@ import {
 } from '../../../redux/modules/Slice/userSlice';
 
 const LoginBody = ({}) => {
+  const token = localStorage.getItem('accessToken');
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -43,8 +45,8 @@ const LoginBody = ({}) => {
         if (response.meta.requestStatus === 'fulfilled') {
           console.log('성공');
           window.confirm(`로그인 성공!`);
-          dispatch(__getNickname());
-          dispatch(__getUsername());
+          dispatch(__getNickname(token));
+          dispatch(__getUsername(token));
           navigate(`/board`);
         } else {
           window.confirm(`${response.payload.response.data.errorMessage}`);
@@ -55,15 +57,18 @@ const LoginBody = ({}) => {
     }
   };
 
+  if (token) {
+    return <Navigate to='/board' replace={true} />;
+  }
+
   return (
     <>
       <L.Section>
         <L.Header>
-        <L.HeaderText>로그인</L.HeaderText>
-          <L.Button 
-            className='is-sqaure'
-            onClick={() => navigate("/")}
-          >X</L.Button>
+          <L.HeaderText>로그인</L.HeaderText>
+          <L.Button className='is-sqaure' onClick={() => navigate('/')}>
+            X
+          </L.Button>
         </L.Header>
         <form onSubmit={handleSubmit}>
           <LoginInput

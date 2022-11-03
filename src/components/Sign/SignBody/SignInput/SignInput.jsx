@@ -17,25 +17,27 @@ const SignInput = ({
   const [textColorToggle, setTextColorToggle] = useState(false);
   const handleRepeat = async (e) => {
     e.preventDefault();
-
     if (name === 'username') {
       if (!is_username(input.username)) {
         setAlertToggle(true);
         setTextColorToggle(false);
         setAlertMsg(alertMessage);
       } else {
+        //
+
         const response = await axios.post(
           `${process.env.REACT_APP_SERVER}${repeatCheckUrl}`,
           {
             [name]: input[name],
           }
         );
-
         if (!response.data.success) {
+          //아이디가 중복임 실패함
           setAlertToggle(true);
           setTextColorToggle(false);
           setAlertMsg(response.data.error.msg);
         } else {
+          //아이디가 중복이아님 성공함
           setAlertToggle(true);
           setTextColorToggle(true);
           setAlertMsg(response.data.data);
@@ -58,8 +60,6 @@ const SignInput = ({
         setTextColorToggle(true);
         setAlertMsg(response.data.data);
       }
-    } else if (name === 'password') {
-      // 시간나면 여기서부터 다시하셈
     }
   };
 
