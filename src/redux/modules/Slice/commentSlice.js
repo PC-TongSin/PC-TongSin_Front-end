@@ -1,13 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addCommentApi, delCommentApi, editCommentApi } from "../API/commentAPI";
-
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  addCommentApi,
+  delCommentApi,
+  editCommentApi,
+} from '../API/commentAPI';
 
 export const __addComment = createAsyncThunk(
-  "addComment",
+  'addComment',
   async (payload, thunkAPI) => {
     try {
       await addCommentApi(payload);
-      return thunkAPI.fulfillWithValue(payload)
+      return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -15,7 +18,7 @@ export const __addComment = createAsyncThunk(
 );
 
 export const __delComment = createAsyncThunk(
-  "delComment",
+  'delComment',
   async (payload, thunkAPI) => {
     try {
       await delCommentApi(payload);
@@ -27,10 +30,10 @@ export const __delComment = createAsyncThunk(
 );
 
 export const __editComment = createAsyncThunk(
-  "editComment",
+  'editComment',
   async (payload, thunkAPI) => {
     try {
-      const response = await editCommentApi(payload)
+      const response = await editCommentApi(payload);
       return thunkAPI.fulfillWithValue(response);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -39,7 +42,7 @@ export const __editComment = createAsyncThunk(
 );
 
 export const commentSlice = createSlice({
-  name: "comments",
+  name: 'comments',
   initialState: {
     comment: [],
     isCommentChanged: false,
@@ -47,12 +50,11 @@ export const commentSlice = createSlice({
     error: null,
   },
   reducers: {
-    resetStatusComment : (state, _) => {
+    resetStatusComment: (state, _) => {
       state.isCommentChanged = false;
-    }
+    },
   },
   extraReducers: {
-
     // POST Request Comment
     [__addComment.pending]: (state) => {
       state.isLoading = true;
@@ -74,7 +76,9 @@ export const commentSlice = createSlice({
     [__delComment.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.isCommentChanged = true;
-      state.comment = state.comment.filter((item) => item.id !== action.payload)
+      state.comment = state.comment.filter(
+        (item) => item.id !== action.payload
+      );
     },
     [__delComment.rejected]: (state, action) => {
       state.isLoading = false;
@@ -89,14 +93,14 @@ export const commentSlice = createSlice({
       state.isLoading = false;
       state.isCommentChanged = true;
       state.comment = state.comment.map((item) => {
-        return item.id === action.payload.id ? action.payload : item
+        return item.id === action.payload.id ? action.payload : item;
       });
     },
     [__editComment.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.error;
     },
-  }
+  },
 });
 
 export const { resetStatusComment } = commentSlice.actions;
