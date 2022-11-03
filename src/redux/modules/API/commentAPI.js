@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_SERVER;
-
 const accessToken = localStorage.getItem("accessToken")
 
 export const addCommentApi = async (payload) => {
@@ -22,7 +21,8 @@ export const delCommentApi = async (payload) => {
 };
 
 export const editCommentApi = async (payload) => {
-  await axios.put(`${BASE_URL}/api/comments/${payload.id}`, payload.content, {
+  console.log(payload)
+  await axios.put(`${BASE_URL}/api/comments/${payload.id}`, payload, {
     headers: {
       Authorization: accessToken,
       "Content-Type": "application/json", // 400에러 뜨고, 이거 하니까 성공함 Special Thanks To 창욱님
