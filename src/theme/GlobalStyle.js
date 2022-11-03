@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   };
 
   body {
-    animation: blue-me 5ms infinite;
+    /* animation: blue-me 5ms infinite; */
   }
   /* @keyframes blue-me {
     28%{ background: #171DA8; }
