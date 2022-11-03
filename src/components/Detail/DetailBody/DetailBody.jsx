@@ -10,7 +10,7 @@ import {
 import { DetailMisc } from '../DetailMisc/DetailMisc';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   __deleteBoardId,
   __fixBoardId,
@@ -24,7 +24,6 @@ export const Detail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const usernameFromLocalStorage = localStorage.getItem('username');
-  const token = localStorage.getItem('accessToken');
 
   const [onFix, setOnFix] = useState(false);
 

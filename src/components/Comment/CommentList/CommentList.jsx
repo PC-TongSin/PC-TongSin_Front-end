@@ -41,6 +41,8 @@ export const CommentList = () => {
     };
   }, [dispatch, id, isCommentChanged]);
 
+  const username = localStorage.getItem("username")
+
   return (
     <div>
       {
@@ -49,7 +51,7 @@ export const CommentList = () => {
             <Comments key={ item.comment_id }>
               <StComment>{ item.author }</StComment>
               <StCommentContent>
-                {isEdit ? (
+                { username === item.author && isEdit ? (
                   <StEditInput
                     defaultValue={ item.content }
                     spellcheck={ false }
@@ -59,31 +61,29 @@ export const CommentList = () => {
                   <StInput defaultValue={ item.content } disabled />
                 )}
               </StCommentContent>
+              { username === item.author ? 
+                <>
+                  {
+                    isEdit ? 
+                      <StCommentDelBtn onClick={() => {
+                        dispatch(__editComment({ id: item.comment_id, content }));
+                        setIsEdit(!isEdit);
+                      }}>완료</StCommentDelBtn> :
+                      <StCommentDelBtn onClick={() => {
+                        setIsEdit(!isEdit);
+                      }}>수정
+                      </StCommentDelBtn>
+                  }
+                  <StCommentDelBtn onClick={() => {
+                    dispatch(__delComment(item.comment_id));
+                  }}>X</StCommentDelBtn>
+                </> : 
+                <>
+                  <p></p>
+                  <p></p>
+                </>
+              }
               <StComment>{ item?.createAt?.substr(0,10) }</StComment>
-  
-              {isEdit ? (
-                <StCommentDelBtn
-                  onClick={() => {
-                    dispatch(__editComment({ id: item.comment_id, content }));
-                    setIsEdit(!isEdit);
-                  }}
-                >완료
-                </StCommentDelBtn>
-              ) : (
-                <StCommentDelBtn
-                  onClick={() => {
-                    setIsEdit(!isEdit);
-                  }}
-                >수정
-                </StCommentDelBtn>
-              )}
-
-              <StCommentDelBtn
-                onClick={() => {
-                  dispatch(__delComment(item.comment_id));
-                }}
-              >X
-              </StCommentDelBtn>
             </Comments>
           );
         })
