@@ -59,7 +59,6 @@ export const userSlice = createSlice({
       state.username = action.payload;
     },
     [__getNickname.fulfilled]: (state, action) => {
-      console.log('닉네임임', action.payload);
       state.nickname = action.payload;
     },
   },

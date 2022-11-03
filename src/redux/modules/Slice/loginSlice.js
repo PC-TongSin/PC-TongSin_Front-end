@@ -7,7 +7,9 @@ export const __loginUser = createAsyncThunk(
     try {
       const response = await loginUserApi(payload);
       localStorage.setItem('accessToken', response.headers.authorization);
-      localStorage.setItem('refreshToken', response.headers["refresh-token"]);
+      localStorage.setItem('refreshToken', response.headers['refresh-token']);
+      localStorage.setItem('username', response.data.data.username);
+
       return thunkAPI.fulfillWithValue(payload);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -29,7 +31,7 @@ export const loginSlice = createSlice({
   extraReducers: {
     [__loginUser.fulfilled]: (state, action) => {
       state.loginInfo.push(action.payload);
-      state.isLogin = true
+      state.isLogin = true;
     },
     [__loginUser.rejected]: (_, action) => {
       console.log(action.payload);

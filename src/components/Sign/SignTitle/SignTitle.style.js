@@ -18,13 +18,10 @@ export const LoginTitleSection = styled.section`
 export const LoginTitleH1 = styled.h1`
   margin: auto;
   font-size: 4rem;
-  color: ${(props) => {
-    console.log(props.theme);
-  }};
-  @media screen and (width: 1024px){
+  @media screen and (width: 1024px) {
     font-size: 3rem;
   }
-  @media screen and (width: 768px){
+  @media screen and (width: 768px) {
     font-size: 2rem;
   }
 `;

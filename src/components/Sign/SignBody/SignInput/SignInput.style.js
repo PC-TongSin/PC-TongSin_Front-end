@@ -51,7 +51,8 @@ export const CheckButton = styled.button`
   border-top-color: rgb(255, 255, 255);
   border-right-color: rgb(5, 6, 8);
   border-bottom-color: rgb(5, 6, 8);
-  box-shadow: rgb(223, 224, 227) 1px 1px 0px 1px inset, rgb(136, 140, 143) -1px -1px 0px 1px inset;
+  box-shadow: rgb(223, 224, 227) 1px 1px 0px 1px inset,
+    rgb(136, 140, 143) -1px -1px 0px 1px inset;
   height: 35px;
   width: 70%;
   border-style: solid;
@@ -59,7 +60,7 @@ export const CheckButton = styled.button`
 `;
 export const FakeCheckButton = styled.div`
   flex: 1;
-  background-color: ${(props) => props.theme.GREY};
+  background-color: ${(props) => props.theme.BLACK};
 `;
 
 export const InputDiv = styled.div`
@@ -74,7 +75,7 @@ export const MsgDiv = styled.div`
 
 export const RepeatCheck = styled.span`
   position: relative;
-  left: 14%;
+  text-align: center;
   ${({ repeatToggle }) => {
     if (repeatToggle) {
       return 'margin: 1rem 2rem; ';

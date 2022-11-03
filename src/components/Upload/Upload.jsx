@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   __getNickname,
@@ -11,27 +11,19 @@ import UploadBox from './UploadBox/UploadBox';
 import UploadTextareaBox from './UploadTextareaBox/UploadTextareaBox';
 
 const Upload = ({}) => {
+  const token = localStorage.getItem('accessToken');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { username, nickname } = useSelector((state) => state.users);
-  const [on, setOn] = useState(false);
-
-  console.log(username);
-  console.log(nickname);
 
   const yes = () => {
-    console.log(1);
-    dispatch(__getNickname());
-    dispatch(__getUsername());
-    setOn(true);
+    dispatch(__getNickname(token));
+    dispatch(__getUsername(token));
   };
 
   useEffect(() => {
     yes();
   }, [dispatch, username]);
-
-  console.log(username);
-  console.log(nickname);
 
   const [input, setInput] = useState({
     title: '',
@@ -73,6 +65,11 @@ const Upload = ({}) => {
       content: '',
     });
   };
+
+  if (!token) {
+    window.confirm('로그인이 필요합니다');
+    return <Navigate to='/board' replace={true} />;
+  }
 
   return (
     <>

@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_SERVER;
-const accessToken = localStorage.getItem("accessToken")
+const accessToken = localStorage.getItem('accessToken');
 
 export const postUserApi = async (payload) => {
   await axios.post(`${BASE_URL}/api/auth/signup`, payload);
@@ -9,23 +9,23 @@ export const postUserApi = async (payload) => {
 
 export const loginUserApi = async (payload) => {
   const response = await axios.post(`${BASE_URL}/api/auth/login`, payload);
-  return response
+  return response;
 };
 
-export const getUsernameInfoApi = async () => {
+export const getUsernameInfoApi = async (token) => {
   const response = await axios.get(`${BASE_URL}/api/mypage/userinfo/username`, {
     headers: {
-      Authorization: accessToken,
-    }
+      Authorization: token,
+    },
   });
-  return response
+  return response;
 };
 
-export const getNicknameInfoApi = async () => {
+export const getNicknameInfoApi = async (token) => {
   const response = await axios.get(`${BASE_URL}/api/mypage/userinfo/nickname`, {
     headers: {
-      Authorization: accessToken,
-    }
+      Authorization: token,
+    },
   });
-  return response
+  return response;
 };

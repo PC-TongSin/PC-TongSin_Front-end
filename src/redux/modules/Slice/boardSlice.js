@@ -58,7 +58,7 @@ export const __deleteBoardId = createAsyncThunk(
 );
 
 export const __countHeart = createAsyncThunk(
-  "countHeart",
+  'countHeart',
   async (payload, thunkAPI) => {
     try {
       const response = await countHeartApi(payload);
@@ -82,9 +82,9 @@ export const boardSlice = createSlice({
     error: null,
   },
   reducers: {
-    resetStatusBoard : (state, _) => {
+    resetStatusBoard: (state, _) => {
       state.isBoardChanged = false;
-    }
+    },
   },
   extraReducers: {
     // GET Request BoardList
@@ -112,7 +112,7 @@ export const boardSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    
+
     // PUT Request one Board Item(수정)
     [__fixBoardId.pending]: (state) => {
       state.isLoading = true;
@@ -126,21 +126,21 @@ export const boardSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    
+
     // DELETE Request one Board Item(삭제)
     [__deleteBoardId.pending]: (state) => {
       state.isLoading = true;
     },
     [__deleteBoardId.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.isBoardChanged = true;
+      state.isBoardChanged = !state.isBoardChanged;
       state.board = {};
     },
     [__deleteBoardId.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },
-    
+
     [__countHeart.pending]: (state) => {
       state.isLoading = true;
     },
@@ -151,7 +151,7 @@ export const boardSlice = createSlice({
     [__countHeart.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.error;
-    }
+    },
   },
 });
 

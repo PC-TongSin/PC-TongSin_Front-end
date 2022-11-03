@@ -10,6 +10,8 @@ const Header = ({}) => {
 
   const handleLogOut = () => {
     localStorage.removeItem('accessToken');
+    localStorage.removeItem('username');
+    localStorage.removeItem('refreshToken');
     window.location.reload();
   };
 

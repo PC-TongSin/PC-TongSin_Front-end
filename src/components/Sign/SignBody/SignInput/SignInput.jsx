@@ -17,7 +17,6 @@ const SignInput = ({
   const [textColorToggle, setTextColorToggle] = useState(false);
   const handleRepeat = async (e) => {
     e.preventDefault();
-
     if (name === 'username') {
       if (!is_username(input.username)) {
         setAlertToggle(true);
@@ -30,14 +29,13 @@ const SignInput = ({
             [name]: input[name],
           }
         );
-
         if (!response.data.success) {
-          console.log(response.data)
+          //아이디가 중복임 실패함
           setAlertToggle(true);
           setTextColorToggle(false);
           setAlertMsg(response.data.data);
         } else {
-          console.log(response)
+          //아이디가 중복이아님 성공함
           setAlertToggle(true);
           setTextColorToggle(true);
           setAlertMsg(response.data.data);
@@ -60,8 +58,6 @@ const SignInput = ({
         setTextColorToggle(true);
         setAlertMsg(response.data.data);
       }
-    } else if (name === 'password') {
-      // 시간나면 여기서부터 다시하셈
     }
   };
 
@@ -78,7 +74,7 @@ const SignInput = ({
           <I.Input
             name={name}
             value={input[name]}
-            autoComplete="off"
+            autoComplete='off'
             onChange={(e) => {
               onChangeHandler(e);
             }}
@@ -89,8 +85,7 @@ const SignInput = ({
               {textColorToggle ? 'checked\n(다시 체크하기)' : '중복체크'}
             </I.CheckButton>
           ) : (
-            <I.FakeCheckButton>
-            </I.FakeCheckButton>
+            <I.FakeCheckButton></I.FakeCheckButton>
           )}
         </I.Div>
         <I.MsgDiv>

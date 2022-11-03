@@ -56,6 +56,8 @@ const SignBody = () => {
           window.confirm(`${response.payload.response.data.errorMessage}`);
         }
       }
+
+      navigate('/board');
     } else {
       window.confirm('비밀번호가 서로 다릅니다!');
     }
@@ -66,14 +68,13 @@ const SignBody = () => {
       <B.Section>
         <B.Header>
           <B.HeaderText>회원가입</B.HeaderText>
-          <B.Button 
-            className='is-sqaure'
-            onClick={() => navigate("/login")}
-          >X</B.Button>
+          <B.Button className='is-sqaure' onClick={() => navigate('/login')}>
+            X
+          </B.Button>
         </B.Header>
 
         <form onSubmit={onSubmitHandlers}>
-          <hr/>
+          <hr />
           <SignInput
             id='아이디'
             repeteCheck={true}
@@ -84,7 +85,10 @@ const SignBody = () => {
             alertMessage='아이디가 이상합니다! 아이디는 최소 4자 이상, 12자 이하 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 구성됩니다.'
             repeatCheckUrl='/api/auth/check-id'
           />
-          <GuideMsg>아이디는 4 ~ 12자, 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로 작성해주세요^0^</GuideMsg>
+          <GuideMsg>
+            아이디는 4 ~ 12자, 알파벳 대소문자(a-z, A-Z), 숫자(0-9)로
+            작성해주세요^0^
+          </GuideMsg>
           <SignInput
             id='닉네임'
             repeteCheck={true}
@@ -94,7 +98,7 @@ const SignBody = () => {
             onChangeHandler={onChangeHandler}
             repeatCheckUrl='/api/auth/check-nickname'
           />
-          <GuideMsg/>
+          <GuideMsg />
           <SignInput
             id='비밀번호'
             repeteCheck={false}
@@ -103,7 +107,10 @@ const SignBody = () => {
             input={input}
             onChangeHandler={onChangeHandler}
           />
-          <GuideMsg>비밀번호는 8 ~ 20자, 알파벳 대소문자, 숫자(0-9), 특수문자로 작성해주세요.^0^</GuideMsg>
+          <GuideMsg>
+            비밀번호는 8 ~ 20자, 알파벳 대소문자, 숫자(0-9), 특수문자로
+            작성해주세요.^0^
+          </GuideMsg>
           <SignInput
             id='비밀번호확인'
             repeteCheck={false}
@@ -112,8 +119,8 @@ const SignBody = () => {
             input={input}
             onChangeHandler={onChangeHandler}
           />
-          <GuideMsg/>
-          <hr/>
+          <GuideMsg />
+          <hr />
           <B.Button>회원가입</B.Button>
         </form>
       </B.Section>
@@ -129,4 +136,4 @@ export const GuideMsg = styled.p`
   padding: 0;
   margin-left: 15rem;
   font-size: 0.7rem;
-`
+`;

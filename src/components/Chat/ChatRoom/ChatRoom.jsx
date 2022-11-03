@@ -6,7 +6,9 @@ import {
   StChatBoxContainer,
 } from './ChatRoom.styled';
 import { useEffect, useState } from 'react';
-import { ChattingServiceKit } from '../../../SockJS/SockInstance';
+import ChattingService from '../../../SockJS/SockInstance';
+
+const ChattingServiceKit = new ChattingService();
 
 export const ChatRoom = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -43,14 +45,19 @@ export const ChatRoom = () => {
     setMessage('');
   };
 
+  useEffect(() => {
+    return () => {
+      ChattingServiceKit.onDisconnect();
+    };
+  }, []);
+
   return (
     <ChatContainer>
       <StChatBoxContainer>
-        {
-          chatLog !== 0 && chatLog.map((val, index) => {
+        {chatLog !== 0 &&
+          chatLog.map((val, index) => {
             return <h4 key={index}>{val}</h4>;
-          })
-        }
+          })}
         {message.length > 0 ? (
           <StUpLoading>메시지 발신 중...</StUpLoading>
         ) : (
