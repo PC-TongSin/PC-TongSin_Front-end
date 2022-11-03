@@ -9,7 +9,9 @@ import {
   ChatMsg,
 } from './ChatRoom.styled';
 import { useEffect, useState } from 'react';
-import { ChattingServiceKit } from '../../../SockJS/SockInstance';
+import ChattingService from '../../../SockJS/SockInstance';
+
+const ChattingServiceKit = new ChattingService();
 
 export const ChatRoom = () => {
   const accessToken = localStorage.getItem('accessToken');

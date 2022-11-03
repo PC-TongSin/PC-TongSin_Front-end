@@ -44,9 +44,9 @@ class ChattingService {
 
   onDisconnect = () => {
     this.stompClient.disconnect();
-    this.stompClient = null;
+
     console.log('disconnected');
   };
 }
 
-export const ChattingServiceKit = new ChattingService();
+export default ChattingService;
