@@ -14,15 +14,15 @@ export const Board = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { boards, isBoardChanged } = useSelector((state) => state?.boards);
+
   useEffect(() => {
     dispatch(__getBoard());
-  }, [dispatch]);
+  }, [dispatch, isBoardChanged]);
 
-  const boards = useSelector((state) => state?.boards?.boards);
   const [page, setPage] = useState(useSelector((state) => state?.boards.page));
   const size = useSelector((state) => state?.boards.size);
-  const offset = ( page - 1 ) * size;
-
+  const offset = (page - 1) * size;
 
   return (
     <>
@@ -46,8 +46,10 @@ export const Board = () => {
                 <BoardItemSmall>{item.id}</BoardItemSmall>
                 <BoardItemSmall>{item.author}</BoardItemSmall>
                 <BoardItemSmall>{item.nickname}</BoardItemSmall>
-                <BoardItemMedium>{item.createdAt.substr(0, 10)}</BoardItemMedium>
-                <BoardItemSmall>{Math.round(item.hit/3)}</BoardItemSmall>
+                <BoardItemMedium>
+                  {item.createdAt.substr(0, 10)}
+                </BoardItemMedium>
+                <BoardItemSmall>{Math.round(item.hit / 3)}</BoardItemSmall>
                 <BoardItemSmall>{item.totalCommentCount}</BoardItemSmall>
                 <BoardItemSmall>{item.totalHeartCount}</BoardItemSmall>
                 <BoardItemLarge
@@ -62,7 +64,12 @@ export const Board = () => {
           })}
         </tbody>
       </BoardContainer>
-      <Pagination total={boards?.length} size={size} page={page} setPage={setPage}/>
+      <Pagination
+        total={boards?.length}
+        size={size}
+        page={page}
+        setPage={setPage}
+      />
     </>
   );
 };

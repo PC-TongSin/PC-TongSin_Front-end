@@ -74,11 +74,6 @@ export const Detail = () => {
     setOnFix(false);
   };
 
-  console.log(boardItem);
-  // console.log(onFix);
-  // console.log(username);
-  // console.log(boardItem.author);
-
   return (
     <DetailContainer>
       <DetailNotice>
