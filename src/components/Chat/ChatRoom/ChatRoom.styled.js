@@ -6,6 +6,7 @@ export const ChatContainer = styled.div`
   height: 100%;
   flex-direction: column;
   white-space: pre;
+  /* overflow: scroll; */
 `
 
 export const StChatInput = styled.input`

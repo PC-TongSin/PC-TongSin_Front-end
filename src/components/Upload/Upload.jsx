@@ -64,6 +64,7 @@ const Upload = ({}) => {
       title: '',
       content: '',
     });
+    navigate(-1)
   };
 
   if (!token) {
@@ -73,67 +74,34 @@ const Upload = ({}) => {
 
   return (
     <>
-    <UploadContainer>
-      <UploadHeader>
-        <UploadHeaderText>게시물 등록</UploadHeaderText>
-        <UploadBtn onClick={handleCancel}>X</UploadBtn>
-      </UploadHeader>
-      <hr/>
-      <form onSubmit={handleSubmit}>
-        <UploadBox title='작성자'>
-          <Span2>{username}</Span2>
-        </UploadBox>
-        <UploadBox title='닉네임'>
-          <Span2>{nickname}</Span2>
-        </UploadBox>
-        <UploadBox>
-          <BoxInput
-            value={input.title}
-            name='title'
-            onChange={handleChange}
-          />
-        </UploadBox>
-        <UploadTextareaBox
-          content={input.content}
-          handleChange={handleChange}
-        />
+      <UploadContainer>
+        <UploadHeader>
+          <UploadHeaderText>게시물 등록</UploadHeaderText>
+          <UploadBtn onClick={handleCancel}>X</UploadBtn>
+        </UploadHeader>
         <hr/>
-        <UploadBtn>등록</UploadBtn>
-      </form>
-    </UploadContainer>
-      {/* <U.Section>
         <form onSubmit={handleSubmit}>
-          <U.TitleDiv>
-            <U.TitleSpan>글 작성</U.TitleSpan>
-          </U.TitleDiv>
-
-          <U.ThinDiv>
-            <U.ThinDiv2>
-              <UploadBox title='작성자'>
-                <Span2>{username}</Span2>
-              </UploadBox>
-              <UploadBox title='닉네임'>
-                <Span2>{nickname}</Span2>
-              </UploadBox>
-              <UploadBox>
-                <BoxInput
-                  value={input.title}
-                  name='title'
-                  onChange={handleChange}
-                />
-              </UploadBox>
-              <UploadTextareaBox
-                content={input.content}
-                handleChange={handleChange}
-              />
-            </U.ThinDiv2>
-            <ButtonDiv>
-              <ButtonCancel onClick={handleCancel}>취소</ButtonCancel>
-              <ButtonSubmit>게시물 등록</ButtonSubmit>
-            </ButtonDiv>
-          </U.ThinDiv>
+          <UploadBox title='작성자'>
+            <Span2>{username}</Span2>
+          </UploadBox>
+          <UploadBox title='닉네임'>
+            <Span2>{nickname}</Span2>
+          </UploadBox>
+          <UploadBox>
+            <BoxInput
+              value={input.title}
+              name='title'
+              onChange={handleChange}
+            />
+          </UploadBox>
+          <UploadTextareaBox
+            content={input.content}
+            handleChange={handleChange}
+          />
+          <hr/>
+          <UploadBtn>등록</UploadBtn>
         </form>
-      </U.Section> */}
+      </UploadContainer>
     </>
   );
 };

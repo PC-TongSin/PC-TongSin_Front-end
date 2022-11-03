@@ -52,7 +52,7 @@ export const DetailMisc = ({ totalHeartCount }) => {
             setAmILiked(!amILiked);
           }}
         >
-          취소하기
+          추천하기
         </Like>
       ) : (
         <Like
@@ -61,7 +61,7 @@ export const DetailMisc = ({ totalHeartCount }) => {
             setAmILiked(!amILiked);
           }}
         >
-          추천하기
+          취소하기
         </Like>
       )}
       <p>{totalHeartCount}</p>
