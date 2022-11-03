@@ -6,7 +6,7 @@ export const Section = styled.section`
   height: 32.6rem;
   margin: 0 auto;
   max-width: 60rem;
-  min-width: 50rem;
+  /* min-width: 50rem; */
   border-left-color: rgb(255, 255, 255);
   border-top-color: rgb(255, 255, 255);
   border-right-color: rgb(5, 6, 8);
