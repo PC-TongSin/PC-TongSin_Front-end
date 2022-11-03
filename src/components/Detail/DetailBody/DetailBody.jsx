@@ -21,10 +21,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Detail = () => {
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const usernameFromLocalStorage = localStorage.getItem('username');
+  const token = localStorage.getItem('accessToken');
 
   const [onFix, setOnFix] = useState(false);
 
@@ -35,17 +36,17 @@ export const Detail = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(__getUsername());
+    dispatch(__getUsername(token));
   }, [dispatch]);
 
   const boardItem = useSelector((state) => state.boards?.board);
-  const username = useSelector((state) => state.users?.username, shallowEqual);
-  localStorage.getItem('username', username);
+  // const username = useSelector((state) => state.users?.username, shallowEqual);
+  // const username = useSelector((state) => state.users?.username);
 
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(__deleteBoardId(id));
-    navigate("/board")
+    navigate('/board');
   };
   const handleCancel = (e) => {
     e.preventDefault();
@@ -73,57 +74,54 @@ export const Detail = () => {
     setOnFix(false);
   };
 
+  console.log(boardItem);
+  // console.log(onFix);
+  // console.log(username);
+  // console.log(boardItem.author);
+
   return (
     <DetailContainer>
       <DetailNotice>
         [공지] 안내 메시지입니다. 항상 커밋을 잘 하십시오.
       </DetailNotice>
 
-      <form onSubmit={ handleSubmit }>
-        <DetailTitle>{ boardItem?.title }</DetailTitle>
+      <form onSubmit={handleSubmit}>
+        <DetailTitle>{boardItem?.title}</DetailTitle>
 
         <DetailInfo>
-          <p>{ boardItem?.author }</p>
+          <p>{boardItem?.author}</p>
           <p></p>
           <p></p>
           <p></p>
           <p></p>
           <p></p>
-          <p>{ boardItem?.createdAt?.substr(0, 10) }</p>
+          <p>{boardItem?.createdAt?.substr(0, 10)}</p>
         </DetailInfo>
-        {
-          username === boardItem.author ? (
-            <>
-              {
-                onFix ? (
-                  <DetailBtn>확인</DetailBtn>
-                ) : (
-                  <DetailBtn onClick={handleDelete}>게시글 삭제</DetailBtn>
-                )
-              }
-              {
-                onFix ? (
-                  <DetailBtn onClick={handleCancel}>취소</DetailBtn>
-                ) : (
-                  <DetailBtn onClick={handleFix}>게시글 수정</DetailBtn>
-                )
-              }
-            </>
-          ) : null
-        }
+        {usernameFromLocalStorage === boardItem.author ? (
+          <>
+            {onFix ? (
+              <DetailBtn>확인</DetailBtn>
+            ) : (
+              <DetailBtn onClick={handleDelete}>게시글 삭제</DetailBtn>
+            )}
+            {onFix ? (
+              <DetailBtn onClick={handleCancel}>취소</DetailBtn>
+            ) : (
+              <DetailBtn onClick={handleFix}>게시글 수정</DetailBtn>
+            )}
+          </>
+        ) : null}
 
-        {
-          onFix ? (
-            <DetailTextarea
-              defaultValue={boardItem.content}
-              onChange={handleTextareaChange}
-            />
-          ) : (
-            <DetailBody>{boardItem.content}</DetailBody>
-          )
-        }
+        {onFix ? (
+          <DetailTextarea
+            defaultValue={boardItem.content}
+            onChange={handleTextareaChange}
+          />
+        ) : (
+          <DetailBody>{boardItem.content}</DetailBody>
+        )}
       </form>
-      <DetailMisc totalHeartCount={boardItem.totalHeartCount}/>
+      <DetailMisc totalHeartCount={boardItem.totalHeartCount} />
 
       <DetailInfo />
     </DetailContainer>

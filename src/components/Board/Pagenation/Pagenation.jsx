@@ -1,28 +1,25 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Pagination = ({ total, size, page, setPage }) => {
-
   const pageNum = Math.ceil(total / size);
-  console.log(pageNum)
 
   return (
     <Nav>
       <PageBtn>&lt;</PageBtn>
-      {
-        Array(pageNum)
-          .fill()
-          .map((_, i) => (
-            <PageBtn
-              key={ i + 1 }
-              onClick={() => setPage(i + 1)}
-              aria-current={ page === i + 1 ? "page" : null }
-            >{ i + 1 }
-            </PageBtn>
-          ))
-      }
+      {Array(pageNum)
+        .fill()
+        .map((_, i) => (
+          <PageBtn
+            key={i + 1}
+            onClick={() => setPage(i + 1)}
+            aria-current={page === i + 1 ? 'page' : null}
+          >
+            {i + 1}
+          </PageBtn>
+        ))}
       <PageBtn>&gt;</PageBtn>
     </Nav>
-  )
+  );
 };
 
 export const Nav = styled.div`
@@ -31,7 +28,7 @@ export const Nav = styled.div`
   align-items: center;
   gap: 4px;
   margin: 16px;
-`
+`;
 
 export const PageBtn = styled.button`
   border: none;
@@ -61,4 +58,4 @@ export const PageBtn = styled.button`
     cursor: revert;
     transform: revert;
   }
-`
+`;
