@@ -9,6 +9,11 @@ export const Div = styled.div`
   display: flex;
   align-items: center;
   min-width: 15rem;
+
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Span = styled.span`
